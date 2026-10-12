@@ -1,0 +1,30 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-medium);
+  line-height: 1.4;
+}
+
+.lagoon {
+  background: var(--c-lagoon-50);
+  color: var(--c-lagoon-800);
+}
+
+.orchid {
+  background: var(--c-orchid-100);
+  color: var(--c-orchid-700);
+}
+
+.clay {
+  background: var(--c-clay-100);
+  color: var(--c-clay-600);
+}
+
+.neutral {
+  background: transparent;
+  color: var(--c-ink-600);
+  box-shadow: inset 0 0 0 var(--border-hair) var(--color-border-strong);
+}

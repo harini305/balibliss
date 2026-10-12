@@ -1,0 +1,44 @@
+.figure {
+  position: relative;
+  display: grid;
+  gap: var(--space-5);
+  max-width: 46rem;
+  padding-top: var(--space-6);
+}
+
+.mark {
+  position: absolute;
+  top: -1.5rem;
+  left: -0.25rem;
+  font-family: var(--font-display);
+  font-size: 7rem;
+  line-height: 1;
+  color: var(--c-gold-300);
+}
+
+.quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  font-weight: var(--fw-light);
+  line-height: 1.45;
+  color: var(--color-heading);
+}
+
+.cite {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  font-size: var(--fs-small);
+}
+
+.name {
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--c-orchid-700);
+}
+
+.source {
+  color: var(--color-text-muted);
+}

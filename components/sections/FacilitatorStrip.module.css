@@ -1,0 +1,63 @@
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(11rem, 100%), 1fr));
+  gap: var(--space-7) var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  position: relative;
+  display: grid;
+  gap: var(--space-2);
+  justify-items: center;
+  text-align: center;
+}
+
+.item > figure {
+  width: 100%;
+  max-width: 13rem;
+  margin-bottom: var(--space-2);
+}
+
+.name {
+  font-size: var(--fs-h4);
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+}
+
+/* The whole card is clickable via the name link. */
+.link {
+  display: inline-block;
+  padding-block: var(--space-1);
+  color: var(--color-heading);
+  text-decoration: none;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.link:hover {
+  color: var(--c-lagoon-700);
+  text-decoration: underline;
+}
+
+.item:has(.link:focus-visible) {
+  outline: var(--focus-ring-width) solid var(--color-focus);
+  outline-offset: var(--focus-ring-offset);
+  border-radius: var(--radius-2);
+}
+
+.link:focus-visible {
+  outline: none;
+}
+
+.spec {
+  max-width: 16rem;
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+}

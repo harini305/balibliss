@@ -1,0 +1,42 @@
+.split {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.copy {
+  display: grid;
+  justify-items: start;
+}
+
+.copy > :global(h2),
+.copy > :global(h3) {
+  margin-bottom: var(--space-4);
+}
+
+.body {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 34rem;
+  color: var(--color-text-muted);
+}
+
+@media (min-width: 1024px) {
+  .split {
+    grid-template-columns: 7fr 5fr;
+    gap: var(--space-8);
+  }
+
+  .reverse {
+    grid-template-columns: 5fr 7fr;
+  }
+
+  .reverse .media {
+    order: 2;
+  }
+
+  /* Offset the copy downwards for an editorial, unaligned rhythm. */
+  .copy {
+    padding-top: var(--space-8);
+  }
+}

@@ -1,0 +1,14 @@
+.frame {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+
+.inner {
+  height: 100%;
+  will-change: transform;
+}
+
+.inner > * {
+  height: 100%;
+}

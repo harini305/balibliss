@@ -1,0 +1,25 @@
+{
+  "_note": "Original balibliss.net media → renamed local files. Source paths are relative to https://balibliss.net/wp-content/uploads/. Run `node scripts/fetch-assets.mjs` to (re)download. Files are re-encoded only to strip metadata (EXIF/GPS); they are never upscaled.",
+  "assets": [
+    { "src": "2025/03/Transparent-Logo-1.png", "out": "public/media/brand/bali-bliss-logo.png", "alt": "Bali Bliss — reconnect restore renew" },
+    { "src": "2026/04/balibliss-white-logo.png", "out": "public/media/brand/bali-bliss-logo-white.png", "alt": "Bali Bliss — reconnect restore renew" },
+    { "src": "2025/03/Original-Logo-Symbol.png", "out": "public/media/brand/bali-bliss-symbol.png", "alt": "" },
+    { "src": "2025/03/cropped-Original-Logo-Symbol.png", "out": "app/icon.png", "alt": "" },
+    { "src": "2025/03/cropped-Original-Logo-Symbol.png", "out": "app/apple-icon.png", "alt": "", "resize": 180 },
+
+    { "src": "2026/03/BaliBliss-Retreats-small.jpg", "out": "public/media/retreats/retreat-jungle-steps.jpg", "alt": "A woman in a red dress walking down stone steps through tropical greenery in Bali" },
+    { "src": "2026/04/Pak-Jero-800w-Bali-Bliss.jpg", "out": "public/media/retreats/jero-mangku-artha.jpg", "alt": "Jero Mangku Artha at a Balinese water temple with ceremonial umbrellas" },
+    { "src": "2026/04/Sound-Immersion-800.jpg", "out": "public/media/retreats/melukat-water-blessing.jpg", "alt": "A Balinese priest blessing a guest beneath a sacred spring during Melukat" },
+    { "src": "2026/04/Soundhealing-800.jpg", "out": "public/media/retreats/sound-healing-garden.jpg", "alt": "A facilitator playing a singing bowl over a client resting in a garden pavilion" },
+
+    { "src": "2025/03/Reiki-With-Crystals-LS-1100.jpg", "out": "public/media/services/reiki/reiki-with-crystals.jpg", "alt": "A client lying on a mat during a Reiki session, with crystals and flowers beside her" },
+    { "src": "2025/03/SoundTherapyBaliBliss.jpg", "out": "public/media/services/sound-therapy/singing-bowl-pavilion.jpg", "alt": "A facilitator holding a singing bowl above a seated client in an open pavilion" },
+    { "src": "2026/03/Balibliss-Intuitive-reading.jpeg", "out": "public/media/services/inner-guidance/oracle-cards-table.jpg", "alt": "Three oracle cards laid on a wooden table beside flowers, crystals and a candle" },
+
+    { "src": "2026/01/lia.jpeg", "out": "public/media/people/lia-natali.jpg", "alt": "Lia Natali standing on a lawn in a blue-green dress" },
+    { "src": "2025/03/Arsita-Putri-Bali-Bliss-400.jpg", "out": "public/media/people/arsita-putri.jpg", "alt": "Portrait of Arsita Putri" },
+    { "src": "2025/05/dewi.png", "out": "public/media/people/kiki-dewi.jpg", "alt": "Portrait of Kiki Dewi" },
+    { "src": "2025/03/Yuli-Bali-Bliss-400.jpg", "out": "public/media/people/kadek-yuli.jpg", "alt": "Portrait of Kadek Yuli" },
+    { "src": "2025/06/Yulia.png", "out": "public/media/people/yulia-andriyani.jpg", "alt": "Portrait of Yulia Andriyani" }
+  ]
+}

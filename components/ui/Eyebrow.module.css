@@ -1,0 +1,40 @@
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--c-orchid-700);
+}
+
+.index {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--c-clay-600);
+}
+
+.index::after {
+  content: '';
+  width: var(--space-6);
+  height: var(--border-hair);
+  background: var(--color-ornament);
+}
+
+.onDark {
+  color: var(--c-gold-300);
+}
+
+.onDark .index {
+  color: var(--c-ivory-50);
+}

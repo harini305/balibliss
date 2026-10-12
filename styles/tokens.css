@@ -1,0 +1,165 @@
+/*
+ * Bali Bliss design tokens — "Daily Offering".
+ * The single source of truth for colour, type, space, shape, motion and layering.
+ * Components reference these custom properties only; no raw values in modules.
+ *
+ * Breakpoints (media queries cannot read custom properties, so they are documented here
+ * and used verbatim in modules):
+ *   --bp-sm 480px · --bp-md 768px · --bp-lg 1024px · --bp-nav 1200px · --bp-xl 1280px · --bp-2xl 1536px
+ */
+
+:root {
+  /* ---------- Colour: brand (sampled from the Bali Bliss logo + Divi globals) ---------- */
+  --c-lagoon-50: #eef5f6;
+  --c-lagoon-100: #d6e7ea;
+  --c-lagoon-300: #8fc1c9;
+  --c-lagoon-500: #3f7f8e;
+  --c-lagoon-700: #2a6371; /* logo teal — primary */
+  --c-lagoon-800: #1f505c;
+  --c-lagoon-900: #173e48;
+
+  --c-orchid-100: #efe6ef;
+  --c-orchid-600: #825c85; /* logo tagline plum */
+  --c-orchid-700: #6c4870;
+
+  --c-clay-100: #f4e3da;
+  --c-clay-600: #9a4f31; /* restrained accent from the photography */
+
+  --c-gold-300: #d8b36a; /* ornament only on light surfaces — never text */
+
+  --c-ivory-50: #faf6ef;
+  --c-sand-100: #f1e8da;
+  --c-sand-200: #e6d8c3;
+  --c-white: #ffffff;
+
+  --c-ink-900: #1f2526;
+  --c-ink-600: #53605f;
+  --c-ink-300: #a9b1b0;
+
+  --c-success: #2f6b45;
+  --c-success-bg: #e9f2ec;
+  --c-warning: #8a5a00;
+  --c-error: #a1322b;
+  --c-error-bg: #fbeeec;
+
+  /* ---------- Colour: semantic roles ---------- */
+  --color-bg: var(--c-ivory-50);
+  --color-surface: var(--c-white);
+  --color-surface-alt: var(--c-sand-100);
+  --color-surface-dark: var(--c-lagoon-900);
+  --color-text: var(--c-ink-900);
+  --color-text-muted: var(--c-ink-600);
+  --color-text-on-dark: var(--c-ivory-50);
+  --color-text-on-dark-muted: #c8d6d6;
+  --color-heading: var(--c-lagoon-900);
+  --color-accent: var(--c-orchid-600);
+  --color-link: var(--c-lagoon-700);
+  --color-link-hover: var(--c-lagoon-900);
+  --color-border: var(--c-sand-200);
+  --color-border-strong: var(--c-ink-300);
+  --color-focus: var(--c-lagoon-700);
+  --color-focus-on-dark: var(--c-gold-300);
+  --color-ornament: var(--c-gold-300);
+
+  /* ---------- Typography ---------- */
+  --font-display: var(--font-fraunces), 'Iowan Old Style', Georgia, serif;
+  --font-body: var(--font-instrument), system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Fluid scale: 320px → 1440px viewport */
+  --fs-hero: clamp(2.5rem, 1.6rem + 4.5vw, 5rem);
+  --fs-h1: clamp(2.25rem, 1.7rem + 2.75vw, 3.75rem);
+  --fs-h2: clamp(1.75rem, 1.4rem + 1.75vw, 2.75rem);
+  --fs-h3: clamp(1.375rem, 1.24rem + 0.65vw, 1.75rem);
+  --fs-h4: clamp(1.125rem, 1.08rem + 0.22vw, 1.25rem);
+  --fs-lead: clamp(1.1875rem, 1.12rem + 0.35vw, 1.375rem);
+  --fs-body: 1.0625rem;
+  --fs-small: 0.875rem;
+  --fs-label: 0.75rem;
+
+  --lh-tight: 1.08;
+  --lh-snug: 1.25;
+  --lh-body: 1.65;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+
+  --tracking-label: 0.08em;
+  --tracking-display: -0.015em;
+
+  --measure: 68ch;
+
+  /* ---------- Space (4px base) ---------- */
+  --space-1: 0.25rem; /* 4 */
+  --space-2: 0.5rem; /* 8 */
+  --space-3: 0.75rem; /* 12 */
+  --space-4: 1rem; /* 16 */
+  --space-5: 1.5rem; /* 24 */
+  --space-6: 2rem; /* 32 */
+  --space-7: 3rem; /* 48 */
+  --space-8: 4rem; /* 64 */
+  --space-9: 6rem; /* 96 */
+  --space-10: 8rem; /* 128 */
+
+  --section-y: clamp(var(--space-8), 6vw + 1rem, var(--space-10));
+  --gutter: clamp(var(--space-4), 3vw, var(--space-6));
+
+  /* ---------- Layout ---------- */
+  --width-prose: var(--measure);
+  --width-content: 75rem; /* 1200 */
+  --width-wide: 90rem; /* 1440 */
+  --header-h: 5rem;
+  --header-h-compact: 4rem;
+
+  /* ---------- Shape ---------- */
+  --radius-0: 0;
+  --radius-1: 4px;
+  --radius-2: 8px;
+  --radius-pill: 999px;
+  --border-hair: 1px;
+  --border-strong: 2px;
+
+  --shadow-1: 0 1px 2px rgb(23 62 72 / 0.06), 0 2px 8px rgb(23 62 72 / 0.06);
+  --shadow-2: 0 4px 12px rgb(23 62 72 / 0.08), 0 16px 40px rgb(23 62 72 / 0.12);
+
+  /* ---------- Focus ---------- */
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 3px;
+
+  /* ---------- Motion ---------- */
+  --dur-1: 120ms;
+  --dur-2: 240ms;
+  --dur-3: 480ms;
+  --dur-4: 800ms;
+  --stagger: 80ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* ---------- Layers ---------- */
+  --z-base: 0;
+  --z-raised: 10;
+  --z-header: 100;
+  --z-menu: 200;
+  --z-skip: 300;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-1: 0ms;
+    --dur-2: 0ms;
+    --dur-3: 0ms;
+    --dur-4: 0ms;
+    --stagger: 0ms;
+  }
+}
+
+/* Lets the styleguide preview the reduced-motion path without changing OS settings. */
+:root[data-motion='reduce'] {
+  --dur-1: 0ms;
+  --dur-2: 0ms;
+  --dur-3: 0ms;
+  --dur-4: 0ms;
+    --stagger: 0ms;
+}

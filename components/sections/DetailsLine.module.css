@@ -1,0 +1,27 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+  padding-block: var(--space-4);
+  border-block: var(--border-hair) solid var(--color-border-strong);
+}
+
+.row {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.term {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.value {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--color-heading);
+}

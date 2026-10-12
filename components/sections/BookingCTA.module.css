@@ -1,0 +1,45 @@
+.band {
+  position: relative;
+  overflow: hidden;
+  padding: var(--space-8) var(--gutter);
+  background: var(--color-surface-dark);
+  color: var(--color-text-on-dark);
+}
+
+.ring {
+  position: absolute;
+  right: -6rem;
+  bottom: -8rem;
+  pointer-events: none;
+}
+
+.inner {
+  position: relative;
+  display: grid;
+  gap: var(--space-5);
+  justify-items: start;
+  max-width: 40rem;
+}
+
+.heading {
+  color: var(--c-ivory-50);
+  font-size: var(--fs-h2);
+}
+
+.text {
+  color: var(--color-text-on-dark-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-6);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .band {
+    padding: var(--space-9) var(--space-8);
+  }
+}

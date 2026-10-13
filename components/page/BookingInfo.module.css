@@ -1,0 +1,205 @@
+/* /bookings/: the three ways to book as a numbered ledger between hairlines, then the healing
+   locations beside the map. */
+
+.options {
+  display: grid;
+  gap: var(--space-6);
+  padding-block: var(--space-7) var(--section-y-sm);
+}
+
+.ledger {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--color-border-strong);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr);
+  column-gap: var(--space-4);
+  row-gap: var(--space-4);
+  padding-block: var(--space-6);
+  border-bottom: 1px solid var(--color-border-strong);
+}
+
+.num {
+  grid-row: 1;
+  padding-top: 0.55rem;
+  color: var(--c-clay-deep);
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+}
+
+.rowTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--fs-h2-small);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-heading);
+  font-family: var(--font-display);
+}
+
+.rowText,
+.rowAction {
+  grid-column: 2;
+}
+
+.rowText {
+  display: grid;
+  gap: var(--space-3);
+  max-width: 34rem;
+  color: var(--color-text-muted);
+}
+
+.rowText strong {
+  color: var(--color-heading);
+}
+
+.email {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2-small);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-heading);
+  text-decoration-color: var(--c-clay);
+  overflow-wrap: anywhere;
+  line-height: var(--lh-heading);
+}
+
+.email:hover {
+  color: var(--c-clay-deep);
+}
+
+.rowAction {
+  display: flex;
+}
+
+.note {
+  max-width: var(--measure);
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--c-clay);
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+}
+
+.note strong {
+  color: var(--color-heading);
+}
+
+@media (min-width: 1024px) {
+  .row {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+    align-items: start;
+    padding-block: var(--space-7);
+  }
+
+  .num {
+    grid-column: 1;
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+}
+
+  .rowTitle {
+    grid-column: 2 / span 4;
+    grid-row: 1;
+  font-family: var(--font-display);
+  font-size: var(--fs-h2-small);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+}
+
+  .rowText {
+    grid-column: 6 / span 4;
+    grid-row: 1;
+    padding-top: 0.4rem;
+  }
+
+  .rowAction {
+    grid-column: 10 / -1;
+    grid-row: 1;
+    justify-content: flex-end;
+  }
+
+  .note {
+    margin-left: calc((100% - 11 * var(--grid-gap)) / 12 + var(--grid-gap));
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+}
+
+/* ---------- Locations ---------- */
+
+.locations {
+  padding-block: var(--section-y-sm) var(--section-y);
+}
+
+.locGrid {
+  display: grid;
+  gap: var(--space-7);
+  padding-top: var(--space-7);
+  border-top: 1px solid var(--color-border);
+}
+
+.locCopy {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-4);
+  max-width: var(--measure);
+  color: var(--color-text-muted);
+}
+
+.locCopy h2 {
+  margin-bottom: var(--space-3);
+}
+
+.locCopy strong {
+  display: block;
+  margin-top: var(--space-3);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-list-title);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-heading);
+  color: var(--color-heading);
+}
+
+.map {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+.mapTitle {
+  font-size: var(--fs-list-title);
+  font-weight: var(--fw-regular);
+  font-family: var(--font-body);
+  line-height: var(--lh-heading);
+}
+
+@media (min-width: 1024px) {
+  .locGrid {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+  }
+
+  .locCopy {
+    grid-column: 1 / span 6;
+  }
+
+  .map {
+    grid-column: 8 / -1;
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-6));
+  }
+}

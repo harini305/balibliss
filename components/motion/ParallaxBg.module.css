@@ -1,0 +1,9 @@
+.bg {
+  position: absolute;
+  inset: -8% 0;
+  z-index: -2;
+}
+
+.img {
+  object-fit: cover;
+}

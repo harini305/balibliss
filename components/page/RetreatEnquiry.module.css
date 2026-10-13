@@ -1,0 +1,85 @@
+/* Weekend retreat request: the heading holds the left columns while the composer sits on a
+   sand panel that runs to the right edge of the window. */
+
+.wrap {
+  display: grid;
+  gap: var(--space-7);
+  padding-block: var(--section-y-sm) var(--section-y);
+  border-top: 1px solid var(--color-border);
+}
+
+.copy {
+  display: grid;
+  align-content: start;
+  gap: var(--space-5);
+  max-width: 32rem;
+}
+
+.title {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+}
+
+.note {
+  color: var(--color-text-muted);
+  font-size: var(--fs-body);
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+}
+
+.form {
+  min-width: 0;
+  padding: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-card);
+  background: var(--c-cream);
+}
+
+@media (min-width: 1024px) {
+  .wrap {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+    align-items: start;
+  }
+
+  .copy {
+    grid-column: 1 / span 5;
+    position: sticky;
+    top: calc(var(--header-h) + var(--space-6));
+  }
+
+  .form {
+    grid-column: 6 / -1;
+  }
+  .copy {
+    gap: var(--space-4);
+  }
+}
+
+.photo > div {
+  border-radius: var(--radius-card);
+}
+
+.direct {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.direct a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  min-height: 2.5rem;
+  color: var(--c-ink);
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.direct a:hover {
+  color: var(--c-orange-deep);
+}
+
+.direct svg {
+  color: var(--c-orange);
+}

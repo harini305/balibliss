@@ -1,0 +1,35 @@
+.intro {
+  padding-top: var(--section-y-sm);
+}
+
+.group {
+  position: relative;
+}
+
+.group + .group {
+  border-top: 1px solid var(--c-line);
+}
+
+.groupHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-5);
+  padding-top: var(--section-y-sm);
+  padding-bottom: var(--space-2);
+}
+
+.groupTitle {
+  font-size: var(--fs-h2-small);
+  color: var(--c-moss);
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+}
+
+.groupCount {
+  color: var(--c-muted);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-body);
+}

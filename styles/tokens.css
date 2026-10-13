@@ -1,141 +1,244 @@
 /*
- * Bali Bliss design tokens — "Daily Offering".
- * The single source of truth for colour, type, space, shape, motion and layering.
- * Components reference these custom properties only; no raw values in modules.
+ * Bali Bliss design tokens — "The Art of Returning to Yourself" (collage direction).
+ * Warm ivory pages and cream cards with fine sand hairlines; deep jungle-forest photo banners;
+ * a moss-green invitation band; a single terracotta-orange for actions.
+ * Typography matched to houseofom.com: Bagnard (H1/H2), Inter (body, UI), Mulish (H3/H4).
  *
- * Breakpoints (media queries cannot read custom properties, so they are documented here
- * and used verbatim in modules):
- *   --bp-sm 480px · --bp-md 768px · --bp-lg 1024px · --bp-nav 1200px · --bp-xl 1280px · --bp-2xl 1536px
+ * Breakpoints (used verbatim in modules): 480px · 768px · 1024px · 1200px (desktop nav) · 1440px
+ * Contrast (checked): ink/ivory 13.0 · muted/ivory 5.0 · white/orange 4.6 · orange-deep/ivory 5.3 ·
+ * white/moss 5.5 · ivory/forest 13+.
  */
 
 :root {
-  /* ---------- Colour: brand (sampled from the Bali Bliss logo + Divi globals) ---------- */
-  --c-lagoon-50: #eef5f6;
-  --c-lagoon-100: #d6e7ea;
-  --c-lagoon-300: #8fc1c9;
-  --c-lagoon-500: #3f7f8e;
-  --c-lagoon-700: #2a6371; /* logo teal — primary */
-  --c-lagoon-800: #1f505c;
-  --c-lagoon-900: #173e48;
+  /* ---------- Colour: palette ---------- */
+  --c-ivory: #f6f1e8; /* page */
+  --c-cream: #fbf8f2; /* cards, raised surfaces */
+  --c-sand: #ede5d6; /* alternate band */
+  --c-line: #e3d9c7; /* hairlines, card borders */
+  --c-stone: #cfc3ad;
 
-  --c-orchid-100: #efe6ef;
-  --c-orchid-600: #825c85; /* logo tagline plum */
-  --c-orchid-700: #6c4870;
+  --c-ink: #2a2a24;
+  --c-muted: #6b675d;
+  --c-faint: #8c877b; /* large text only */
 
-  --c-clay-100: #f4e3da;
-  --c-clay-600: #9a4f31; /* restrained accent from the photography */
+  --c-forest: #1f2b21; /* photo-banner overlays, dark bands */
+  --c-forest-2: #2b3a2d;
+  --c-moss: #5b6e4f; /* invitation band */
+  --c-moss-soft: #dfe3d3;
 
-  --c-gold-300: #d8b36a; /* ornament only on light surfaces — never text */
+  --c-orange: #b0602d; /* buttons */
+  --c-orange-deep: #9a5226; /* hover, small accent text */
+  --c-orange-soft: #f1dccb;
+  --c-gold: #e6b98f; /* accents on dark */
 
-  --c-ivory-50: #faf6ef;
-  --c-sand-100: #f1e8da;
-  --c-sand-200: #e6d8c3;
   --c-white: #ffffff;
-
-  --c-ink-900: #1f2526;
-  --c-ink-600: #53605f;
-  --c-ink-300: #a9b1b0;
-
-  --c-success: #2f6b45;
-  --c-success-bg: #e9f2ec;
+  --c-success: #3f6b4c;
+  --c-success-bg: #e6efe5;
   --c-warning: #8a5a00;
   --c-error: #a1322b;
   --c-error-bg: #fbeeec;
 
+  /* Legacy aliases (styleguide, forms, older modules). */
+  --c-paper: var(--c-ivory);
+  --c-paper-raised: var(--c-cream);
+  --c-ivory-raised: var(--c-cream);
+  --c-parchment: var(--c-sand);
+  --c-parchment-deep: var(--c-line);
+  --c-sand-deep: var(--c-line);
+  --c-ink-2: var(--c-muted);
+  --c-ink-3: var(--c-faint);
+  --c-sage: #8a9a7e;
+  --c-sage-soft: var(--c-moss-soft);
+  --c-sage-mist: var(--c-moss-soft);
+  --c-sage-deep: #536851;
+  --c-forest-soft: var(--c-forest-2);
+  --c-forest-deep: var(--c-forest);
+  --c-terra: var(--c-orange);
+  --c-terra-deep: var(--c-orange-deep);
+  --c-terra-light: var(--c-gold);
+  --c-terra-soft: var(--c-orange-soft);
+  --c-mist: #ece7dc;
+  --c-mist-2: #bfc5b8;
+  --c-lagoon-500: var(--c-moss);
+  --c-lagoon-700: var(--c-forest-2);
+  --c-lagoon-800: var(--c-forest);
+  --c-lagoon-900: var(--c-forest);
+  --c-lagoon-950: var(--c-forest);
+  --c-clay: var(--c-orange);
+  --c-clay-deep: var(--c-orange-deep);
+  --c-clay-soft: var(--c-orange-soft);
+  --c-sun: var(--c-gold);
+  --c-mist-300: var(--c-mist-2);
+  --c-forest-950: var(--c-forest);
+  --c-forest-900: var(--c-forest);
+  --c-forest-800: var(--c-forest);
+  --c-forest-700: var(--c-forest-2);
+  --c-forest-600: var(--c-moss);
+  --c-moss-400: var(--c-mist-2);
+  --c-bone-50: var(--c-ivory);
+  --c-bone-100: var(--c-sand);
+  --c-bone-200: var(--c-line);
+  --c-brass-200: var(--c-gold);
+  --c-brass-300: var(--c-gold);
+  --c-brass-500: var(--c-orange);
+  --c-bronze-700: var(--c-orange-deep);
+  --c-ember-500: var(--c-orange);
+  --c-ember-700: var(--c-orange-deep);
+  --c-ink-900: var(--c-ink);
+  --c-ink-600: var(--c-muted);
+  --c-ink-300: var(--c-stone);
+  --c-mist-100: var(--c-mist);
+  --c-lagoon-50: var(--c-sand);
+  --c-lagoon-100: var(--c-line);
+  --c-lagoon-300: var(--c-mist-2);
+  --c-orchid-100: var(--c-sand);
+  --c-orchid-600: var(--c-orange);
+  --c-orchid-700: var(--c-orange-deep);
+  --c-clay-100: var(--c-sand);
+  --c-clay-600: var(--c-orange-deep);
+  --c-gold-300: var(--c-gold);
+  --c-ivory-50: var(--c-ivory);
+  --c-sand-100: var(--c-sand);
+  --c-sand-200: var(--c-line);
+
   /* ---------- Colour: semantic roles ---------- */
-  --color-bg: var(--c-ivory-50);
-  --color-surface: var(--c-white);
-  --color-surface-alt: var(--c-sand-100);
-  --color-surface-dark: var(--c-lagoon-900);
-  --color-text: var(--c-ink-900);
-  --color-text-muted: var(--c-ink-600);
-  --color-text-on-dark: var(--c-ivory-50);
-  --color-text-on-dark-muted: #c8d6d6;
-  --color-heading: var(--c-lagoon-900);
-  --color-accent: var(--c-orchid-600);
-  --color-link: var(--c-lagoon-700);
-  --color-link-hover: var(--c-lagoon-900);
-  --color-border: var(--c-sand-200);
-  --color-border-strong: var(--c-ink-300);
-  --color-focus: var(--c-lagoon-700);
-  --color-focus-on-dark: var(--c-gold-300);
-  --color-ornament: var(--c-gold-300);
+  --color-bg: var(--c-ivory);
+  --color-surface: var(--c-cream);
+  --color-surface-alt: var(--c-sand);
+  --color-surface-dark: var(--c-forest);
+  --color-surface-darkest: var(--c-forest);
+  --color-text: var(--c-ink);
+  --color-text-muted: var(--c-muted);
+  --color-text-on-dark: var(--c-mist);
+  --color-text-on-dark-muted: var(--c-mist-2);
+  --color-heading: var(--c-ink);
+  --color-heading-on-dark: var(--c-white);
+  --color-accent: var(--c-orange);
+  --color-accent-small: var(--c-orange-deep);
+  --color-accent-on-dark: var(--c-gold);
+  --color-quiet: var(--c-muted);
+  --color-link: var(--c-ink);
+  --color-link-hover: var(--c-orange-deep);
+  --color-border: var(--c-line);
+  --color-border-strong: #cdbfa6;
+  --color-border-on-dark: rgb(255 255 255 / 0.18);
+  --color-focus: var(--c-orange-deep);
+  --color-focus-on-dark: var(--c-gold);
+  --color-ornament: var(--c-orange);
+  --color-scrim: rgb(31 43 33 / 0.55);
 
-  /* ---------- Typography ---------- */
-  --font-display: var(--font-fraunces), 'Iowan Old Style', Georgia, serif;
-  --font-body: var(--font-instrument), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* ---------- Typography ----------
+   * Matched to the reference type system (houseofom.com): Bagnard (H1/H2), Inter (body, UI,
+   * labels), Mulish (H3/H4, footer titles). Each step scales linearly from a 360px to a 1600px
+   * viewport, then holds — the same min/max values as the reference. */
+  --font-display: var(--font-bagnard), Georgia, serif;
+  --font-body: var(--font-inter), system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-subhead: var(--font-mulish), var(--font-inter), system-ui, sans-serif;
 
-  /* Fluid scale: 320px → 1440px viewport */
-  --fs-hero: clamp(2.5rem, 1.6rem + 4.5vw, 5rem);
-  --fs-h1: clamp(2.25rem, 1.7rem + 2.75vw, 3.75rem);
-  --fs-h2: clamp(1.75rem, 1.4rem + 1.75vw, 2.75rem);
-  --fs-h3: clamp(1.375rem, 1.24rem + 0.65vw, 1.75rem);
-  --fs-h4: clamp(1.125rem, 1.08rem + 0.22vw, 1.25rem);
-  --fs-lead: clamp(1.1875rem, 1.12rem + 0.35vw, 1.375rem);
-  --fs-body: 1.0625rem;
-  --fs-small: 0.875rem;
-  --fs-label: 0.75rem;
+  --text-2xs: clamp(0.6rem, 0.5652rem + 0.1548vw, 0.72rem); /* 9.6 → 11.52px */
+  --text-xs: clamp(0.75rem, 0.7065rem + 0.1935vw, 0.9rem); /* 12 → 14.4px */
+  --text-s: clamp(1.0625rem, 1.0081rem + 0.2419vw, 1.25rem); /* 17 → 20px */
+  --text-m: clamp(1.1719rem, 1.1038rem + 0.3024vw, 1.4062rem); /* 18.75 → 22.5px */
+  --text-l: clamp(1.4649rem, 1.3798rem + 0.378vw, 1.7578rem); /* 23.44 → 28.13px */
+  --text-xl: clamp(1.8311rem, 1.7248rem + 0.4725vw, 2.1972rem); /* 29.3 → 35.16px */
+  --text-2xl: clamp(2.2888rem, 2.1559rem + 0.5906vw, 2.7466rem); /* 36.62 → 43.95px */
+  --text-3xl: clamp(2.861rem, 2.6949rem + 0.7384vw, 3.4333rem); /* 45.78 → 54.93px */
+  --text-4xl: clamp(4.0534rem, 3.8458rem + 0.923vw, 4.7687rem); /* 64.86 → 76.3px */
+  --heading-xs: clamp(0.9rem, 0.8129rem + 0.3871vw, 1.2rem); /* 14.4 → 19.2px */
+  --heading-s: clamp(1.125rem, 1.0161rem + 0.4839vw, 1.5rem); /* 18 → 24px */
+  --heading-m: clamp(1.4062rem, 1.2702rem + 0.6048vw, 1.875rem); /* 22.5 → 30px */
+  --heading-l: clamp(1.7584rem, 1.5882rem + 0.7563vw, 2.3445rem); /* 28.13 → 37.51px */
 
-  --lh-tight: 1.08;
-  --lh-snug: 1.25;
-  --lh-body: 1.65;
+  /* Roles (as on the reference) */
+  --fs-mega: var(--text-4xl); /* homepage hero H1 */
+  --fs-display: var(--text-4xl); /* page H1 */
+  --fs-hero: var(--fs-display);
+  --fs-h1: var(--text-4xl);
+  --fs-h2: var(--text-3xl); /* section H2 */
+  --fs-h2-small: 25px; /* small Bagnard H2 (feature / card headings) */
+  --fs-h3: var(--text-l); /* Mulish 600 */
+  --fs-h4: var(--heading-m); /* Mulish 600 */
+  --fs-statement: var(--text-xl); /* quotes in banners */
+  --fs-lead: var(--text-m); /* hero / intro paragraph */
+  --fs-body: var(--text-s); /* paragraphs */
+  --fs-small: 16px; /* card descriptions, footer links */
+  --fs-caption: var(--text-xs); /* meta, tags, small print */
+  --fs-label: 18px; /* eyebrow: Inter 500 uppercase */
+  --fs-nav: 18px; /* navigation: Inter 400 */
+  --fs-button: var(--text-s); /* buttons: Inter 500, capitalised */
+  --fs-card-title: var(--heading-xs); /* card titles: Inter 700, capitalised */
+  --fs-list-title: var(--heading-s); /* article / list titles: Inter 400 */
 
-  --fw-light: 300;
+  --lh-tight: 1.3;
+  --lh-snug: 1.3;
+  --lh-heading: 1.4;
+  --lh-lead: 1.7;
+  --lh-body: 1.7;
+
+  --fw-light: 400;
   --fw-regular: 400;
   --fw-medium: 500;
   --fw-semibold: 600;
+  --fw-bold: 700;
 
-  --tracking-label: 0.08em;
-  --tracking-display: -0.015em;
+  --tracking-label: normal;
+  --tracking-display: normal;
+  --tracking-mega: normal;
+  --tracking-button: 0.2px;
 
-  --measure: 68ch;
+  --measure: 62ch;
 
-  /* ---------- Space (4px base) ---------- */
-  --space-1: 0.25rem; /* 4 */
-  --space-2: 0.5rem; /* 8 */
-  --space-3: 0.75rem; /* 12 */
-  --space-4: 1rem; /* 16 */
-  --space-5: 1.5rem; /* 24 */
-  --space-6: 2rem; /* 32 */
-  --space-7: 3rem; /* 48 */
-  --space-8: 4rem; /* 64 */
-  --space-9: 6rem; /* 96 */
-  --space-10: 8rem; /* 128 */
+  /* ---------- Space ---------- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --space-11: 11rem;
 
-  --section-y: clamp(var(--space-8), 6vw + 1rem, var(--space-10));
-  --gutter: clamp(var(--space-4), 3vw, var(--space-6));
+  --section-y: clamp(3rem, 2.4rem + 2.2vw, 4.75rem);
+  --section-y-sm: clamp(2.25rem, 1.9rem + 1.4vw, 3.25rem);
+  --gutter: clamp(1.25rem, 0.6rem + 3vw, 3.5rem);
+  --grid-gap: clamp(1rem, 0.7rem + 1vw, 1.5rem);
 
   /* ---------- Layout ---------- */
   --width-prose: var(--measure);
-  --width-content: 75rem; /* 1200 */
-  --width-wide: 90rem; /* 1440 */
-  --header-h: 5rem;
-  --header-h-compact: 4rem;
+  --width-content: 72rem;
+  --width-wide: 80rem;
+  --header-h: 6.5rem;
+  --header-h-compact: 5rem;
 
   /* ---------- Shape ---------- */
   --radius-0: 0;
-  --radius-1: 4px;
-  --radius-2: 8px;
+  --radius-1: 3px;
+  --radius-2: 6px;
+  --radius-card: 4px;
+  --radius-arch: 999px 999px 0 0;
   --radius-pill: 999px;
   --border-hair: 1px;
   --border-strong: 2px;
 
-  --shadow-1: 0 1px 2px rgb(23 62 72 / 0.06), 0 2px 8px rgb(23 62 72 / 0.06);
-  --shadow-2: 0 4px 12px rgb(23 62 72 / 0.08), 0 16px 40px rgb(23 62 72 / 0.12);
+  --shadow-1: 0 1px 2px rgb(42 42 36 / 0.04), 0 8px 24px rgb(42 42 36 / 0.06);
+  --shadow-2: 0 14px 40px rgb(42 42 36 / 0.12);
 
-  /* ---------- Focus ---------- */
   --focus-ring-width: 2px;
   --focus-ring-offset: 3px;
 
   /* ---------- Motion ---------- */
-  --dur-1: 120ms;
-  --dur-2: 240ms;
-  --dur-3: 480ms;
-  --dur-4: 800ms;
+  --dur-1: 180ms;
+  --dur-2: 360ms;
+  --dur-3: 650ms;
+  --dur-4: 1100ms;
   --stagger: 80ms;
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-sweep: cubic-bezier(0.77, 0, 0.18, 1);
 
   /* ---------- Layers ---------- */
   --z-base: 0;
@@ -143,6 +246,31 @@
   --z-header: 100;
   --z-menu: 200;
   --z-skip: 300;
+}
+
+/* Reference breakpoints: H2 steps down on tablets and phones, H1 on small phones, eyebrows on phones. */
+@media (max-width: 991px) {
+  :root {
+    --fs-h1: var(--text-3xl);
+    --fs-display: var(--text-3xl);
+    --fs-mega: var(--text-3xl);
+    --fs-h2: var(--text-xl);
+  }
+}
+
+@media (max-width: 767px) {
+  :root {
+    --fs-h2: 40px;
+    --fs-label: 17px;
+  }
+}
+
+@media (max-width: 478px) {
+  :root {
+    --fs-h1: var(--text-2xl);
+    --fs-display: var(--text-2xl);
+    --fs-mega: var(--text-2xl);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -155,11 +283,10 @@
   }
 }
 
-/* Lets the styleguide preview the reduced-motion path without changing OS settings. */
 :root[data-motion='reduce'] {
   --dur-1: 0ms;
   --dur-2: 0ms;
   --dur-3: 0ms;
   --dur-4: 0ms;
-    --stagger: 0ms;
+  --stagger: 0ms;
 }

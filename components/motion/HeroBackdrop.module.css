@@ -1,0 +1,19 @@
+.media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.img {
+  object-fit: cover;
+  transform: scale(1.05);
+}
+
+/* Deep forest from the bottom (where the copy sits), a veil from the left and at the top (header). */
+.scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgb(24 41 31 / 0.92) 0%, rgb(24 41 31 / 0.6) 36%, rgb(24 41 31 / 0.1) 68%, rgb(24 41 31 / 0.4) 100%),
+    linear-gradient(90deg, rgb(24 41 31 / 0.4), transparent 60%);
+}

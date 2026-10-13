@@ -1,0 +1,120 @@
+.wrap {
+  display: grid;
+  gap: var(--space-7);
+  padding-block: var(--section-y-sm) var(--section-y);
+}
+
+.info {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+.heading {
+  font-size: var(--fs-h2);
+}
+
+.lead {
+  max-width: 30rem;
+  color: var(--c-muted);
+  font-size: var(--fs-body);
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+}
+
+.channels {
+  display: grid;
+  gap: var(--space-4);
+  margin: var(--space-3) 0 0;
+}
+
+.channel {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: start;
+}
+
+.chIcon {
+  display: grid;
+  place-items: center;
+  padding-top: 0.1rem;
+  color: var(--c-ink);
+}
+
+.chBody {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+}
+
+.value {
+  color: var(--c-muted);
+  font-size: var(--fs-small);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  line-height: var(--lh-body);
+}
+
+a.value {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+}
+
+a.value:hover {
+  color: var(--c-orange-deep);
+}
+
+.social {
+  display: flex;
+  gap: 0.25rem;
+  margin-left: -0.6rem;
+}
+
+.socialLink {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  color: var(--c-ink);
+  transition:
+    background-color var(--dur-2) var(--ease-standard),
+    color var(--dur-2) var(--ease-standard);
+}
+
+.socialLink:hover {
+  background: var(--c-orange);
+  color: var(--c-white);
+}
+
+.panel {
+  padding: clamp(1.25rem, 0.8rem + 2vw, 2.5rem);
+}
+
+.formTitle {
+  font-size: var(--fs-h2-small);
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+}
+
+.formNote {
+  margin: var(--space-2) 0 var(--space-5);
+  color: var(--c-muted);
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+}
+
+@media (min-width: 1024px) {
+  .wrap {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: var(--space-9);
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "assets": [
+    { "src": "2025/03/Reiki-with-Crystals-450.jpg", "out": "public/media/services/reiki/reiki-garden-pavilion.jpg", "alt": "A practitioner resting her hands on a client's face during Reiki on a garden pavilion" },
+    { "src": "2026/05/Somatic-Experiences1.jpeg", "out": "public/media/services/somatic-practices/guided-movement-studio.jpg", "alt": "A facilitator guiding a woman through a flowing side stretch in a sunlit studio" },
+    { "src": "2026/05/Somatic-Experiences2.jpeg", "out": "public/media/services/somatic-practices/hands-on-floor-session.jpg", "alt": "A kneeling facilitator resting her hands on the chest and arm of a woman lying on a rug" },
+    { "src": "2026/06/Soulful-page.png", "out": "public/media/services/soul-full/arms-raised-pavilion.jpg", "alt": "Women standing with arms raised overhead beneath a bamboo pavilion" },
+    { "src": "2026/06/Soul-Full-page.jpeg", "out": "public/media/services/soul-full/group-practice-pavilion.jpg", "alt": "A group holding a squat with arms extended on a wooden floor in an open jungle pavilion" },
+    { "src": "2026/06/Soul-Full-3.png", "out": "public/media/services/soul-full/heart-meditation-garden.jpg", "alt": "A woman seated cross-legged in a garden with eyes closed, holding a marigold at her heart" },
+    { "src": "2026/06/Sacred-Cacao-Ceremony.jpeg", "out": "public/media/services/sacred-cacao-ceremony/cacao-cup-offering.jpg", "alt": "Two hands holding a cup of cacao above a circle of flowers and candles" },
+    { "src": "2026/06/Cacao-Ceremony-Image.jpeg", "out": "public/media/services/sacred-cacao-ceremony/singing-bowls-garden.jpg", "alt": "A woman in white seated in a garden holding a small bowl, surrounded by singing bowls, candles and marigolds" },
+    { "src": "2025/03/Tarpot-Reading-LS.jpg", "out": "public/media/services/inner-guidance/guidance-session-veranda.jpg", "alt": "A facilitator laying out cards for a client at a table on a garden veranda" },
+    { "src": "2025/03/Facial-Massage-450.jpg", "out": "public/media/services/facial-reflexology/forehead-massage.jpg", "alt": "A practitioner pressing her thumbs along a client's forehead as she lies with eyes closed" }
+  ]
+}

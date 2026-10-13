@@ -1,0 +1,60 @@
+/* Shared layout for hub pages (About, Wellness Sessions). */
+
+.section {
+  padding-block: var(--section-y-sm);
+}
+
+.sand {
+  background: var(--c-sand);
+}
+
+.split {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.splitMedia :global(figure) > div {
+  border-radius: var(--radius-card);
+}
+
+.splitCopy {
+  display: grid;
+  gap: var(--space-4);
+  justify-items: start;
+  max-width: 34rem;
+  color: var(--c-muted);
+  font-size: var(--fs-body);
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+}
+
+.h2 {
+  font-size: var(--fs-h2);
+  color: var(--c-ink);
+}
+
+@media (min-width: 1024px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-9);
+  }
+}
+
+.partnersLink {
+  position: relative;
+  margin-top: calc(var(--space-5) * -1);
+  padding-bottom: var(--section-y-sm);
+}
+
+.closing {
+  margin-top: 0;
+}
+
+.drivers {
+  border-top: 1px solid var(--c-line);
+}
+
+.anchor {
+  scroll-margin-top: calc(var(--header-h-compact) + 3.5rem);
+}

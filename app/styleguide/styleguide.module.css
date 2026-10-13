@@ -358,7 +358,6 @@
   letter-spacing: var(--tracking-display);
   line-height: var(--lh-snug);
   overflow-wrap: break-word;
-  font-variation-settings: 'SOFT' 50;
 }
 
 .specimen em {

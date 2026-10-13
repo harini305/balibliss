@@ -1,6 +1,7 @@
 // Local browser QA with zero dependencies: drives the installed Chrome over the
 // DevTools Protocol (Node's built-in WebSocket). Run while `npm run dev` is up:
-//   node scripts/qa.mjs [baseUrl]
+//   node scripts/qa.mjs [baseUrl] [--routes=/,/reiki/] [--all] [--quick] [--viewports=mobile-375,desktop-1440]
+//   --all reads every URL from <baseUrl>/sitemap.xml; --quick skips the interaction tests.
 // Writes screenshots to qa/screenshots/ and a JSON report to qa/report.json.
 import { spawn } from 'node:child_process';
 import { mkdir, writeFile, rm } from 'node:fs/promises';
@@ -10,7 +11,10 @@ import { tmpdir } from 'node:os';
 
 const DEBUG = process.env.QA_DEBUG === "1";
 const log = (...a) => DEBUG && console.log("[qa]", ...a);
-const BASE = process.argv[2] ?? 'http://localhost:3000';
+const ARGS = process.argv.slice(2);
+const flag = (name) => ARGS.find((a) => a.startsWith(`--${name}`))?.split('=')[1] ?? (ARGS.includes(`--${name}`) ? true : undefined);
+const BASE = ARGS.find((a) => !a.startsWith('--')) ?? 'http://localhost:3000';
+const QUICK = Boolean(flag('quick'));
 const ROOT = resolve(import.meta.dirname, '..');
 const OUT = join(ROOT, 'qa');
 const SHOTS = join(OUT, 'screenshots');
@@ -22,16 +26,25 @@ const CHROME = [
   '/usr/bin/google-chrome',
 ].find((p) => existsSync(p));
 
-const ROUTES = [
+const DEFAULT_ROUTES = [
   { path: '/', name: 'home' },
   { path: '/styleguide/', name: 'styleguide' },
   { path: '/this-page-does-not-exist/', name: '404', expectStatus: 404 },
 ];
-const VIEWPORTS = [
+const ALL_VIEWPORTS = [
   { name: 'mobile-375', width: 375, height: 812, mobile: true, dpr: 2 },
   { name: 'tablet-768', width: 768, height: 1024, mobile: true, dpr: 2 },
   { name: 'desktop-1440', width: 1440, height: 900, mobile: false, dpr: 1 },
 ];
+const VIEWPORTS = flag('viewports') ? ALL_VIEWPORTS.filter((vp) => flag('viewports').split(',').includes(vp.name)) : ALL_VIEWPORTS;
+const nameOf = (p) => (p === '/' ? 'home' : p.replace(/^\/|\/$/g, '').replace(/\//g, '_'));
+let ROUTES = DEFAULT_ROUTES;
+if (typeof flag('routes') === 'string') ROUTES = flag('routes').split(',').map((p) => DEFAULT_ROUTES.find((r) => r.path === p) ?? { path: p, name: nameOf(p) });
+if (flag('all')) {
+  const xml = await (await fetch(BASE + '/sitemap.xml')).text();
+  const paths = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => new URL(m[1]).pathname);
+  ROUTES = [...paths.map((p) => ({ path: p, name: nameOf(p) })), ...DEFAULT_ROUTES.filter((r) => r.name !== 'home')];
+}
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -140,6 +153,9 @@ const PAGE_CHECKS = `(() => {
 
 async function scrollThrough(cdp) {
   await cdp.evalLong(`(async () => {
+    // Scroll only after hydration (page heroes add .intro-ready), or reveals set up later stay hidden.
+    for (let t = 0; t < 100 && !document.documentElement.classList.contains('intro-ready'); t++) await new Promise(r => setTimeout(r, 100));
+    await new Promise(r => setTimeout(r, 300));
     const h = () => document.documentElement.scrollHeight;
     for (let y = 0; y < h(); y += Math.round(innerHeight * 0.6)) { scrollTo({ top: y, behavior: "instant" }); await new Promise(r => setTimeout(r, 120)); }
     scrollTo({ top: h(), behavior: "instant" }); await new Promise(r => setTimeout(r, 1400));
@@ -187,10 +203,10 @@ async function desktopNavTest(cdp) {
     if (!trig) return out;
     trig.focus(); trig.click(); await wait(100);
     const panel = document.getElementById(trig.getAttribute('aria-controls'));
-    out.opensOnClick = trig.getAttribute('aria-expanded') === 'true' && !panel.hidden;
+    out.opensOnClick = trig.getAttribute('aria-expanded') === 'true' && panel.hasAttribute('data-open');
     out.panelLinks = panel.querySelectorAll('a').length;
-    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await wait(100);
-    out.escCloses = trig.getAttribute('aria-expanded') === 'false' && panel.hidden;
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true })); await wait(900);
+    out.escCloses = trig.getAttribute('aria-expanded') === 'false' && !panel.hasAttribute('data-open') && getComputedStyle(panel).visibility === 'hidden';
     out.focusReturned = document.activeElement === trig;
     trig.click(); await wait(80);
     document.body.dispatchEvent(new PointerEvent('pointerdown', { bubbles: true })); await wait(80);
@@ -319,6 +335,7 @@ for (const vp of VIEWPORTS) {
     }
   }
 
+  if (QUICK) continue;
   // Interactions on the styleguide at this viewport
   await navigate(cdp, BASE + '/styleguide/');
   const inter = {};
@@ -350,10 +367,29 @@ for (const vp of VIEWPORTS) {
     scrollTo({ top: 0, behavior: "instant" }); await wait(300);
     return { hiddenOnDown, shownOnUp, expandedAtTop: !h.hasAttribute('data-compact') };
   })()`);
+  // Homepage motion that screenshots can't show: the pinned horizontal sessions gallery.
+  if (vp.width >= 1024) {
+    await navigate(cdp, BASE + '/');
+    inter.gallery = await cdp.evalLong(`(async () => {
+      const wait = (ms) => new Promise(r => setTimeout(r, ms));
+      for (let t = 0; t < 100 && !document.documentElement.classList.contains('intro-ready'); t++) await wait(100);
+      await wait(800);
+      const wrap = document.querySelector('[data-pinned]');
+      if (!wrap) return { pinned: false };
+      const track = wrap.querySelector('[role=list]');
+      const top = wrap.getBoundingClientRect().top + scrollY;
+      scrollTo({ top: top + innerHeight * 0.8, behavior: 'instant' }); await wait(1600);
+      const x = new DOMMatrix(getComputedStyle(track).transform).m41;
+      const stuck = Math.abs(wrap.getBoundingClientRect().top) < 2;
+      scrollTo({ top: 0, behavior: 'instant' });
+      return { pinned: true, stuckToTop: stuck, translatedX: Math.round(x), moved: x < -50 };
+    })()`);
+  }
   report.interactions[vp.name] = inter;
 }
 
 // Reduced motion: nothing hidden, ring drawn, no transforms from parallax
+if (!QUICK) {
 await cdp.send('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
 await cdp.send('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
 await navigate(cdp, BASE + '/styleguide/');
@@ -365,6 +401,7 @@ const rmDetail = await cdp.eval(`(() => ({
 }))()`);
 await screenshot(cdp, join(SHOTS, `styleguide--reduced-motion-1440.jpg`));
 report.reducedMotion = { hiddenInMain: rm1.hiddenInMain, ...rmDetail };
+}
 
 await writeFile(join(OUT, 'report.json'), JSON.stringify(report, null, 2));
 proc.kill();

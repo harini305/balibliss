@@ -1,0 +1,165 @@
+/* ---------- Banner ---------- */
+
+.banner {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  min-height: clamp(20rem, 15rem + 16vw, 27rem);
+  background: var(--c-forest);
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgb(20 28 21 / 0.72) 0%, rgb(20 28 21 / 0.35) 60%, rgb(20 28 21 / 0.2) 100%),
+    linear-gradient(0deg, rgb(20 28 21 / 0.55) 0%, transparent 55%);
+}
+
+.bannerInner {
+  display: grid;
+  gap: var(--space-3);
+  width: 100%;
+  padding-top: calc(var(--header-h) + var(--space-6));
+  padding-bottom: clamp(2.5rem, 2rem + 2vw, 3.75rem);
+}
+
+.crumbs :global(a),
+.crumbs :global(li),
+.crumbs :global(span) {
+  color: rgb(255 255 255 / 0.78) !important;
+}
+
+.crumbs :global([aria-current]) {
+  color: var(--c-white) !important;
+}
+
+.title {
+  max-width: 22ch;
+  font-size: var(--fs-display);
+  line-height: var(--lh-heading);
+  color: var(--c-white);
+}
+
+.subtitle {
+  max-width: 40rem;
+  color: rgb(255 255 255 / 0.9);
+  font-size: var(--fs-lead);
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+}
+
+.bannerAction {
+  padding-top: var(--space-3);
+}
+
+/* ---------- Intro panel ---------- */
+
+.panel {
+  padding-block: var(--section-y-sm);
+}
+
+.panelGrid {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+}
+
+.media > div,
+.media :global(figure) > div {
+  overflow: hidden;
+  border-radius: var(--radius-card);
+}
+
+.details {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  max-width: 34rem;
+}
+
+.eyebrow {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--c-orange-deep);
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+}
+
+.facts {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0 0 var(--space-2);
+}
+
+.fact {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  column-gap: var(--space-3);
+}
+
+.factIcon {
+  grid-row: span 2;
+  display: grid;
+  place-items: start center;
+  padding-top: 0.15rem;
+  color: var(--c-ink);
+}
+
+.fact dt {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+}
+
+.fact dd {
+  margin: 0;
+  color: var(--c-muted);
+  font-size: var(--fs-caption);
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--c-ink);
+  font-weight: var(--fw-regular);
+}
+
+.intro {
+  color: var(--c-muted);
+  font-size: var(--fs-body);
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+@media (min-width: 1024px) {
+  .panelGrid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-9);
+  }
+  .portrait {
+    max-width: 28rem;
+    justify-self: end;
+    width: 100%;
+  }
+  .noImage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .noImage .details {
+    max-width: 46rem;
+  }
+}

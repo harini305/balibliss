@@ -1,0 +1,123 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  min-height: max(100svh, 38rem);
+  overflow: hidden;
+  background: var(--c-forest);
+  color: var(--c-white);
+}
+
+.media {
+  position: absolute;
+  inset: -4% 0 -10%;
+  z-index: -2;
+}
+
+.img {
+  object-fit: cover;
+  transform: scale(1.04);
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgb(20 28 21 / 0.75) 0%, rgb(20 28 21 / 0.45) 45%, rgb(20 28 21 / 0.15) 75%),
+    linear-gradient(0deg, rgb(20 28 21 / 0.45) 0%, transparent 40%);
+}
+
+.copy {
+  display: grid;
+  gap: var(--space-4);
+  padding-top: calc(var(--header-h) + var(--space-5));
+  padding-bottom: var(--space-9);
+}
+
+.place {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: rgb(255 255 255 / 0.85);
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+}
+
+.title {
+  display: grid;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.brand {
+  font-size: var(--fs-mega);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-mega);
+  text-transform: uppercase;
+  color: var(--c-white);
+}
+
+.sub {
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--c-white);
+  line-height: var(--lh-body);
+}
+
+.text {
+  max-width: 30rem;
+  color: rgb(255 255 255 / 0.88);
+  font-size: var(--fs-lead);
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+}
+
+.cue {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-5);
+  display: grid;
+  justify-items: center;
+  gap: 0.35rem;
+  min-width: 2.75rem;
+  transform: translateX(-50%);
+  color: rgb(255 255 255 / 0.8);
+  font-size: var(--fs-caption);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.cueIcon {
+  transform: rotate(90deg);
+  animation: cue 2.2s var(--ease-in-out) infinite;
+}
+
+@keyframes cue {
+  0%,
+  100% {
+    transform: rotate(90deg) translateX(0);
+  }
+  50% {
+    transform: rotate(90deg) translateX(5px);
+  }
+}
+
+.cue:hover {
+  color: var(--c-white);
+}

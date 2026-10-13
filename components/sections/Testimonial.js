@@ -1,6 +1,6 @@
 import styles from './Testimonial.module.css';
 
-/** A single client quote, reproduced verbatim from an existing source. */
+/** A single client quote, reproduced verbatim from an existing source. Blank lines in `quote` separate paragraphs. */
 export default function Testimonial({ quote, name, source }) {
   return (
     <figure className={styles.figure}>
@@ -8,7 +8,9 @@ export default function Testimonial({ quote, name, source }) {
         “
       </span>
       <blockquote className={styles.quote}>
-        <p>{quote}</p>
+        {quote.split(/\n\s*\n/).map((p, i) => (
+          <p key={i}>{p}</p>
+        ))}
       </blockquote>
       <figcaption className={styles.cite}>
         <span className={styles.name}>{name}</span>

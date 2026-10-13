@@ -4,7 +4,7 @@ import styles from './Accordion.module.css';
 /**
  * FAQ accordion built on native <details>/<summary>: keyboard and screen-reader
  * support for free, and fully readable without JavaScript.
- * items: [{ question, answer }]; headingLevel sets the semantic level of each question.
+ * items: [{ question, answer }] (answer: string or paragraph array); headingLevel sets the semantic level of each question.
  */
 export default function Accordion({ items, headingLevel = 3, defaultOpen = -1 }) {
   const H = `h${headingLevel}`;
@@ -19,7 +19,9 @@ export default function Accordion({ items, headingLevel = 3, defaultOpen = -1 })
             </span>
           </summary>
           <div className={styles.answer}>
-            <p>{item.answer}</p>
+            {[].concat(item.answer).map((p, pi) => (
+              <p key={pi}>{p}</p>
+            ))}
           </div>
         </details>
       ))}

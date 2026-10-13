@@ -1,0 +1,8 @@
+{
+  "assets": [
+    { "src": "2026/04/SOund-and-Sool-780x480-1.jpeg", "out": "public/media/retreats/sacred-healing-purification-ritual/priest-guidance-riverside.jpg", "alt": "A Balinese priest kneeling beside a river, guiding a woman in a red sarong seated on a mat with an offering between them" },
+    { "src": "2026/04/Balinese-Sacred-Birthday-Ceremony.jpeg", "out": "public/media/retreats/sacred-birthday-blessing-ceremony/blessing-bracelet.jpg", "alt": "A Balinese priest tying a blessing bracelet on a woman's wrist beside an offering table with marigolds" },
+    { "src": "2026/04/Pah-Jero-Sacred-Immersion.jpg", "out": "public/media/retreats/sacred-renewal-immersion/melukat-spring.jpg", "alt": "A Balinese priest standing in the river as a guest bows beneath a sacred spring spout during Melukat" },
+    { "src": "2026/04/Lia-nalatali-Healing-Facilitator.png", "out": "public/media/retreats/sacred-renewal-immersion/lia-healing-session.jpg", "alt": "Lia Natali cradling a client's head as she lies on a garden daybed during a healing session" }
+  ]
+}

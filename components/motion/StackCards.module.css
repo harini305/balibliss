@@ -1,0 +1,24 @@
+.stack {
+  display: grid;
+  gap: var(--space-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.inner {
+  transform-origin: 50% 0;
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .stack {
+    gap: 12vh;
+  }
+
+  /* Each card sticks a little lower than the one before, so their edges fan out. */
+  .card {
+    position: sticky;
+    top: calc(var(--header-h-compact) + var(--space-5) + var(--i) * 0.75rem);
+  }
+}

@@ -1,21 +1,36 @@
+/* FAQ accordion on native <details>: large serif questions, a rotating plus, and (where the
+   browser supports ::details-content) a smooth height transition. */
+
 .list {
-  border-top: var(--border-hair) solid var(--color-border-strong);
+  border-top: 1px solid var(--color-border-strong);
 }
 
 .item {
-  border-bottom: var(--border-hair) solid var(--color-border-strong);
+  border-bottom: 1px solid var(--color-border-strong);
+  interpolate-size: allow-keywords;
+}
+
+.item::details-content {
+  block-size: 0;
+  overflow: hidden;
+  transition:
+    block-size var(--dur-3) var(--ease-out),
+    content-visibility var(--dur-3) allow-discrete;
+}
+
+.item[open]::details-content {
+  block-size: auto;
 }
 
 .summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--space-4);
-  min-height: 3.5rem;
+  gap: var(--space-5);
+  min-height: 3.75rem;
   padding-block: var(--space-4);
   cursor: pointer;
   list-style: none;
-  border-radius: var(--radius-1);
 }
 
 .summary::-webkit-details-marker {
@@ -23,43 +38,49 @@
 }
 
 .question {
-  font-family: var(--font-display);
-  font-size: var(--fs-h4);
+  font-family: var(--font-body);
+  font-size: var(--fs-list-title);
   font-weight: var(--fw-regular);
-  line-height: 1.35;
-  color: var(--color-heading);
   letter-spacing: 0;
+  line-height: var(--lh-heading);
+  color: var(--color-heading);
+  transition: transform var(--dur-3) var(--ease-out);
 }
 
 .summary:hover .question {
-  color: var(--c-lagoon-700);
+  transform: translateX(6px);
 }
 
 .marker {
   display: grid;
   place-items: center;
   flex: none;
-  width: 2.25rem;
-  height: 2.25rem;
-  border: var(--border-hair) solid var(--color-border-strong);
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--c-orange);
+  color: var(--c-orange-deep);
   border-radius: 50%;
-  color: var(--c-lagoon-700);
-  transition: transform var(--dur-2) var(--ease-out), background-color var(--dur-2) var(--ease-standard);
-}
-
-.summary:hover .marker {
-  background: var(--c-lagoon-50);
+  transition:
+    transform var(--dur-3) var(--ease-out),
+    background-color var(--dur-2) var(--ease-standard),
+    color var(--dur-2) var(--ease-standard);
 }
 
 .item[open] .marker {
-  transform: rotate(45deg);
-  background: var(--c-lagoon-700);
-  border-color: var(--c-lagoon-700);
+  transform: rotate(135deg);
+  background: var(--c-orange);
+  border-color: var(--c-orange);
   color: var(--c-white);
 }
 
+.item[open] .question {
+  color: var(--c-orange-deep);
+}
+
 .answer {
-  max-width: var(--measure);
-  padding-bottom: var(--space-5);
+  display: grid;
+  gap: var(--space-3);
+  max-width: 44rem;
+  padding: 0 var(--space-8) var(--space-6) 0;
   color: var(--color-text-muted);
 }

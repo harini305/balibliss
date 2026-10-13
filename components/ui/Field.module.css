@@ -1,3 +1,7 @@
+/* Form controls, editorial style: a small uppercase label above an open, underline-only field.
+   Boxed fields; focus turns the border terracotta; errors turn the line and message --c-error.
+   Every control keeps a ≥44px target and a 16px+ font (no iOS zoom). */
+
 .field {
   display: grid;
   align-content: start;
@@ -9,33 +13,45 @@
   margin: 0;
   padding: 0;
   border: 0;
+  min-inline-size: 0;
 }
 
 .label {
   padding: 0;
-  font-size: 0.9375rem;
-  font-weight: var(--fw-semibold);
-  color: var(--color-text);
+  color: var(--color-heading);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  line-height: var(--lh-body);
+  text-transform: uppercase;
+  font-family: var(--font-body);
 }
 
 .req,
 .opt {
-  font-weight: var(--fw-regular);
+  margin-left: 0.2em;
   color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-regular);
+  letter-spacing: 0;
+  text-transform: none;
 }
 
 .hint {
-  font-size: var(--fs-small);
   color: var(--color-text-muted);
+  font-size: var(--fs-caption);
+  line-height: 1.5;
 }
 
 .error {
   display: flex;
   align-items: flex-start;
   gap: var(--space-2);
+  color: var(--c-error);
   font-size: var(--fs-small);
   font-weight: var(--fw-medium);
-  color: var(--c-error);
+  line-height: 1.45;
 }
 
 .error svg {
@@ -43,55 +59,65 @@
   margin-top: 2px;
 }
 
+/* ---------- Text inputs, textarea, select ---------- */
+
 .control {
   width: 100%;
-  min-height: 3rem;
-  padding: var(--space-3) var(--space-4);
-  border: var(--border-hair) solid var(--color-border-strong);
+  min-height: 2.875rem;
+  padding: 0.65rem 0.85rem;
+  border: 1px solid var(--c-line);
   border-radius: var(--radius-1);
-  background: var(--color-surface);
+  background-color: var(--c-white);
   color: var(--color-text);
-  font-size: 1rem; /* ≥16px prevents iOS zoom */
-  line-height: 1.4;
-  transition: border-color var(--dur-1) var(--ease-standard), box-shadow var(--dur-1) var(--ease-standard);
+  font-family: var(--font-body);
+  font-size: var(--fs-small);
+  font-weight: var(--fw-regular);
+  line-height: 1.45;
+  transition:
+    border-color var(--dur-2) var(--ease-standard),
+    box-shadow var(--dur-2) var(--ease-standard);
 }
 
 .control::placeholder {
-  color: var(--c-ink-600);
-  opacity: 0.85;
+  color: var(--c-faint);
+  opacity: 1;
 }
 
 .control:hover,
 .control[data-force='hover'] {
-  border-color: var(--c-lagoon-700);
+  border-color: var(--color-border-strong);
 }
 
+.control:focus,
 .control:focus-visible,
 .control[data-force='focus'] {
   outline: none;
-  border-color: var(--c-lagoon-700);
-  box-shadow: 0 0 0 var(--focus-ring-width) var(--c-lagoon-700);
+  border-color: var(--c-orange);
+}
+
+/* Keyboard focus also gets a soft halo so it is unmistakable. */
+.control:focus-visible,
+.control[data-force='focus'] {
+  box-shadow: 0 0 0 3px rgb(176 96 45 / 0.2);
 }
 
 .control[aria-invalid='true'] {
-  border-color: var(--c-error);
-  box-shadow: inset 4px 0 0 var(--c-error);
-}
-
-.control[aria-invalid='true']:focus-visible {
-  box-shadow: 0 0 0 var(--focus-ring-width) var(--c-error);
+  border-bottom-color: var(--c-error);
+  background-image: linear-gradient(var(--c-error), var(--c-error));
+  background-size: 100% 2px;
 }
 
 .control:disabled {
   cursor: not-allowed;
-  background: var(--c-sand-100);
-  border-color: var(--color-border);
-  color: var(--c-ink-600);
+  border-bottom-style: dashed;
+  color: var(--c-ink-2);
 }
 
 .textarea {
-  min-height: 8rem;
+  min-height: 9rem;
+  padding-top: var(--space-3);
   resize: vertical;
+  line-height: 1.55;
 }
 
 .selectWrap {
@@ -104,20 +130,39 @@
   cursor: pointer;
 }
 
+.select option {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--c-ink);
+  background: var(--c-paper);
+}
+
 .chevron {
   position: absolute;
   top: 50%;
-  right: var(--space-4);
+  right: 0.25rem;
   transform: translateY(-50%);
   pointer-events: none;
-  color: var(--c-lagoon-700);
+  color: var(--c-clay);
+  transition: transform var(--dur-2) var(--ease-out);
+}
+
+.selectWrap:focus-within .chevron {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Browser autofill keeps the transparent, underlined look. */
+.control:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 100px var(--c-paper-raised) inset;
+  -webkit-text-fill-color: var(--c-ink);
 }
 
 /* ---------- Checkbox / radio ---------- */
 
 .radios {
-  display: grid;
-  gap: var(--space-1);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
 }
 
 .check {
@@ -125,21 +170,83 @@
   align-items: flex-start;
   gap: var(--space-3);
   min-height: 2.75rem;
-  padding-block: var(--space-2);
+  padding-block: 0.6rem;
 }
 
 .box {
+  position: relative;
   flex: none;
+  display: grid;
+  place-items: center;
   width: 1.5rem; /* 24px minimum target */
   height: 1.5rem;
   margin: 0;
-  accent-color: var(--c-lagoon-700);
+  appearance: none;
+  border: 1px solid var(--c-ink);
+  border-radius: 0;
+  background: transparent;
   cursor: pointer;
+  transition:
+    background-color var(--dur-2) var(--ease-standard),
+    border-color var(--dur-2) var(--ease-standard);
+}
+
+/* Checkbox tick, drawn with two borders. */
+.box::after {
+  content: '';
+  width: 0.4rem;
+  height: 0.75rem;
+  margin-top: -0.15rem;
+  border: solid var(--c-paper);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg) scale(0);
+  transition: transform var(--dur-2) var(--ease-out);
+}
+
+.box:checked {
+  background: var(--c-clay);
+  border-color: var(--c-clay);
+}
+
+.box:checked::after {
+  transform: rotate(45deg) scale(1);
+}
+
+.box:hover:not(:disabled) {
+  border-color: var(--c-clay);
+}
+
+.box[aria-invalid='true'] {
+  border-color: var(--c-error);
+  box-shadow: 0 0 0 1px var(--c-error);
+}
+
+.radio {
+  border-radius: 50%;
+}
+
+.radio::after {
+  width: 0.625rem;
+  height: 0.625rem;
+  margin: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--c-clay);
+  transform: scale(0);
+}
+
+.radio:checked {
+  background: transparent;
+  border-color: var(--c-clay);
+}
+
+.radio:checked::after {
+  transform: scale(1);
 }
 
 .box:focus-visible {
   outline: var(--focus-ring-width) solid var(--color-focus);
-  outline-offset: 2px;
+  outline-offset: 3px;
 }
 
 .box:disabled,
@@ -149,6 +256,25 @@
 }
 
 .checkLabel {
+  padding-top: 0.05rem;
   cursor: pointer;
   line-height: 1.5;
+}
+
+.radio + .checkLabel {
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: var(--fw-regular);
+  line-height: 1.3;
+}
+
+.box:checked + .checkLabel {
+  color: var(--color-heading);
+}
+
+/* Inline links inside a checkbox label keep a 24px+ target. */
+.checkLabel a {
+  display: inline-block;
+  padding-block: 0.2rem;
+  line-height: 1.3;
 }

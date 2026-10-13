@@ -1,44 +1,56 @@
+/* A single, large client quote set in the display serif. */
+
 .figure {
   position: relative;
   display: grid;
-  gap: var(--space-5);
-  max-width: 46rem;
-  padding-top: var(--space-6);
+  gap: var(--space-6);
 }
 
 .mark {
-  position: absolute;
-  top: -1.5rem;
-  left: -0.25rem;
+  display: block;
+  height: 0.55em;
   font-family: var(--font-display);
-  font-size: 7rem;
-  line-height: 1;
-  color: var(--c-gold-300);
+  font-size: clamp(6rem, 4rem + 8vw, 11rem);
+  font-weight: var(--fw-light);
+  line-height: 0.85;
+  color: var(--color-accent);
 }
 
 .quote {
+  display: grid;
+  gap: var(--space-4);
   font-family: var(--font-display);
-  font-size: clamp(1.25rem, 1.1rem + 0.7vw, 1.75rem);
+  font-size: clamp(1.6rem, 1.2rem + 1.6vw, 2.8rem);
   font-weight: var(--fw-light);
-  line-height: 1.45;
+  letter-spacing: var(--tracking-display);
+  line-height: 1.24;
   color: var(--color-heading);
+  text-wrap: pretty;
 }
 
 .cite {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-2) var(--space-3);
-  font-size: var(--fs-small);
+  gap: var(--space-3);
+}
+
+.cite::before {
+  content: '';
+  width: 2.5rem;
+  height: 1px;
+  background: var(--color-accent);
 }
 
 .name {
+  font-size: var(--fs-label);
   font-weight: var(--fw-semibold);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--c-orchid-700);
+  color: var(--color-heading);
 }
 
 .source {
   color: var(--color-text-muted);
+  font-size: var(--fs-caption);
 }

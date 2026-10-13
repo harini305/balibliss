@@ -1,0 +1,66 @@
+.marquee {
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+}
+
+.row {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 3rem);
+  padding-right: clamp(1.25rem, 3vw, 3rem);
+  white-space: nowrap;
+}
+
+.sep {
+  font-size: 0.45em;
+  color: var(--color-ornament);
+}
+
+/* Still (no JS / reduced motion): one wrapping copy, no duplicate. */
+.marquee:not([data-moving]) .track {
+  width: auto;
+}
+
+.marquee:not([data-moving]) .row {
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: var(--space-3);
+}
+
+.marquee:not([data-moving]) .row[aria-hidden] {
+  display: none;
+}
+
+/* Type: big light serif, every other word in the soft italic. */
+.item {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 1.6rem + 6vw, 8.5rem);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--tracking-display);
+  line-height: 1.1;
+  color: var(--color-heading);
+}
+
+.item:nth-child(even) > span:first-child {
+  font-style: italic;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-accent);
+}
+
+.sep {
+  font-family: var(--font-body);
+  font-size: 0.22em;
+  color: var(--c-terra);
+}

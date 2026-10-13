@@ -1,9 +1,11 @@
 import Link from 'next/link';
 import Icon from './Icon';
+import { hrefFor } from '@/lib/routes.mjs';
 import styles from './TextLink.module.css';
 
 /** Text link with an arrow — for secondary actions ("Read more", "View experience"). */
-export default function TextLink({ href, children, external = false, onDark = false, force, className = '' }) {
+export default function TextLink({ href: rawHref, children, external = false, onDark = false, force, className = '' }) {
+  const href = hrefFor(rawHref);
   const cls = `${styles.link} ${onDark ? styles.onDark : ''} ${className}`;
   const inner = (
     <>

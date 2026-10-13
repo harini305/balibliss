@@ -1,16 +1,18 @@
 import Link from 'next/link';
 import Icon from './Icon';
+import { hrefFor } from '@/lib/routes.mjs';
 import styles from './Button.module.css';
 
 /**
- * Button / link-button.
- * variant: primary | secondary | whatsapp | onDark
+ * Button / link-button: a calm pill; a terracotta tide rises through it on hover while the
+ * arrow travels through its disc.
+ * variant: primary (forest) | accent (terracotta) | secondary (outline) | whatsapp (outline + WhatsApp mark) | onDark (ivory on forest) | ghostDark (outline on forest)
  * Renders <a> when `href` is set (internal → next/link), otherwise <button>.
  * `force` pins a visual state (hover | active | focus) for the styleguide only.
  */
 export default function Button({
   children,
-  href,
+  href: rawHref,
   external = false,
   variant = 'primary',
   size = 'md',
@@ -22,21 +24,21 @@ export default function Button({
   className = '',
   ...rest
 }) {
-  const cls = [
-    styles.button,
-    styles[variant],
-    styles[size],
-    fullWidthOnMobile ? styles.block : '',
-    className,
-  ].join(' ');
+  const href = hrefFor(rawHref);
+  const cls = [styles.button, styles[variant], styles[size], fullWidthOnMobile ? styles.block : '', className].join(' ');
 
-  const trailing = icon ?? (external ? 'external' : null);
+  const trailing = icon ?? null;
   const content = (
     <>
       {loading && <span className={styles.spinner} aria-hidden="true" />}
-      {variant === 'whatsapp' && <Icon name="whatsapp" size={20} />}
-      <span>{children}</span>
-      {trailing && !loading && <Icon name={trailing} size={18} className={styles.icon} />}
+      {variant === 'whatsapp' && <Icon name="whatsapp" size={20} className={styles.lead} />}
+      <span className={styles.text}>{children}</span>
+      {trailing && !loading && (
+        <span className={styles.disc} aria-hidden="true">
+          <Icon name={trailing} size={16} className={styles.icon} />
+          <Icon name={trailing} size={16} className={`${styles.icon} ${styles.iconNext}`} />
+        </span>
+      )}
     </>
   );
 
@@ -58,13 +60,7 @@ export default function Button({
   }
 
   return (
-    <button
-      type={rest.type ?? 'button'}
-      {...shared}
-      disabled={disabled}
-      aria-disabled={loading || undefined}
-      aria-busy={loading || undefined}
-    >
+    <button type={rest.type ?? 'button'} {...shared} disabled={disabled} aria-disabled={loading || undefined} aria-busy={loading || undefined}>
       {content}
     </button>
   );

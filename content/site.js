@@ -15,116 +15,65 @@ export const SITE = {
 // The live booking engine (Amelia on WordPress). The new site links to it; it never simulates it.
 export const BOOKING_URL = 'https://balibliss.net/bookings/';
 
+// The live site uses two WhatsApp numbers (verified 2026-10-12, see content/contact-audit.json):
+// - bookings: every enquiry button (NinjaTeam widget on the retreat hub and retreat pages,
+//   the floating chat bubble) and the booking engine's contact details: +62 813-3659-182.
+// - footer: the WhatsApp social icon in the site footer: +62 815-8641-7127.
+// Enquiry links here use the bookings number, like the live buttons; the footer keeps its own.
+export const WHATSAPP = {
+  number: '628133659182',
+  display: '+62 813-3659-182',
+  href: 'https://api.whatsapp.com/send?phone=628133659182',
+};
+
+export const WHATSAPP_FOOTER = {
+  number: '6281586417127',
+  display: '+62 815-8641-7127',
+  href: 'https://api.whatsapp.com/send?phone=6281586417127',
+};
+
+/** WhatsApp enquiry link with an optional prefilled message (the visitor still presses send). */
+export function whatsappLink(text) {
+  return text ? `https://api.whatsapp.com/send?phone=${WHATSAPP.number}&text=${encodeURIComponent(text)}` : WHATSAPP.href;
+}
+
 // Social links exactly as in the live footer.
-// NOTE: the footer WhatsApp number differs from the floating chat bubble and Amelia
-// (+62 813-3659-182). Primary number is an open question (Phase 0, Q2) — not changed here.
 export const SOCIAL = [
   { label: 'Facebook', href: 'https://www.facebook.com/baliblisswellness', icon: 'facebook' },
   { label: 'Instagram', href: 'https://www.instagram.com/baliblisswellness', icon: 'instagram' },
   { label: 'YouTube', href: 'https://www.youtube.com/@baliblisswellness', icon: 'youtube' },
-  { label: 'WhatsApp', href: 'https://api.whatsapp.com/send?phone=6281586417127', icon: 'whatsapp' },
+  { label: 'WhatsApp', href: WHATSAPP_FOOTER.href, icon: 'whatsapp' },
 ];
 
-// Primary navigation. Groups with `label: null` were top-level items in the live mega-menu.
-// `hub` pages replace the live "#" parents (approved: /wellness-sessions/, /about/).
+// Primary navigation: one page per item (former sub-pages are sections of these pages — see lib/routes.mjs).
 export const NAV = [
-  {
-    label: 'Wellness Sessions',
-    hub: { label: 'All wellness sessions', href: '/wellness-sessions/' },
-    groups: [
-      {
-        label: null,
-        items: [
-          { label: 'Reiki Healing', href: '/reiki/' },
-          { label: 'Sound Therapy', href: '/sound-therapy/' },
-        ],
-      },
-      {
-        label: 'Nervous System Regulation',
-        items: [
-          { label: 'Somatic Practices', href: '/somatic-practices/' },
-          { label: 'Soul Full', href: '/soul-full/' },
-        ],
-      },
-      {
-        label: 'Rituals & Ceremonies',
-        items: [
-          { label: 'Sacred Cacao Ceremony', href: '/sacred_cacao-ceremony/' },
-          { label: 'Inner Guidance', href: '/inner-guidance/' },
-        ],
-      },
-      {
-        label: 'Massage Therapy',
-        items: [
-          { label: 'Facial Reflexology', href: '/facial-reflexology-massage/' },
-          { label: 'Intuitive Healing Massage', href: '/intuitive-healing-massage/' },
-          { label: 'Chi Nei Tsang Healing', href: '/chi-nei-tsang-healing/' },
-          // Orphan page on the live site; linked per the approved sitemap.
-          { label: 'Postural Alignment Therapy', href: '/postural-alignment-therapy/' },
-        ],
-      },
-      {
-        label: null,
-        items: [
-          { label: 'Mat Pilates', href: '/mat-pilates/' },
-          { label: 'Qigong', href: '/qigong-session/' },
-          { label: 'Yoga Sessions', href: '/yoga/' },
-        ],
-      },
-    ],
-  },
-  {
-    label: 'Day Retreats',
-    hub: { label: 'All day retreats', href: '/one-day-healing-retreats-in-bali/' },
-    groups: [
-      {
-        label: null,
-        items: [
-          { label: 'Purification and Blessing', href: '/purification-and-blessing/' },
-          { label: 'Sacred Birthday Blessing Ceremony', href: '/sacred-birthday-blessing-ceremony/' },
-          { label: 'Sacred Healing & Purification Ritual', href: '/sacred-healing-purification-ritual/' },
-          { label: 'Sacred Renewal Immersion', href: '/sacred-renewal-immersion/' },
-          { label: 'Sound & Soul Healing Immersion', href: '/sound-soul-healing-immersion/' },
-          // Orphan page on the live site; linked per the approved sitemap.
-          { label: 'Weekend Mini Retreats', href: '/weekend-mini-retreats/' },
-        ],
-      },
-    ],
-  },
-  {
-    label: 'Workshops',
-    groups: [{ label: null, items: [{ label: 'Yoga Alignment & Fundamentals', href: '/yoga-alignment-fundamentals/' }] }],
-  },
-  {
-    label: 'Training',
-    groups: [
-      {
-        label: null,
-        items: [
-          { label: 'Usui Reiki Training – Level 1', href: '/usui-reiki-training-level-1/' },
-          { label: 'Usui Reiki Training – Level 2', href: '/usui-reiki-training-level-2/' },
-        ],
-      },
-    ],
-  },
-  {
-    label: 'About',
-    hub: { label: 'About Bali Bliss', href: '/about/' },
-    groups: [
-      {
-        label: null,
-        items: [
-          { label: 'About Lia', href: '/about-lia-natali/' },
-          { label: 'About Arsita', href: '/about-arsita-putri/' },
-          { label: 'About Kiki', href: '/about-kiki-dewi/' },
-          { label: 'About Yuli', href: '/about-kadek-yuli/' },
-          { label: 'About Yulia', href: '/about-yulia-andriyani/' },
-          { label: 'Our Partners', href: '/partners/' },
-        ],
-      },
-    ],
-  },
+  { label: 'Wellness Sessions', href: '/wellness-sessions/' },
+  { label: 'Day Retreats', href: '/one-day-healing-retreats-in-bali/' },
+  { label: 'Workshops', href: '/workshops/' },
+  { label: 'Training', href: '/training/' },
+  { label: 'About', href: '/about/' },
   { label: 'Insights', href: '/insights/' },
+];
+
+// Topics offered in the contact form (the experiences named in the live menu).
+export const ENQUIRY_TOPICS = [
+  'Reiki Healing',
+  'Sound Therapy',
+  'Somatic Practices',
+  'Soul Full',
+  'Sacred Cacao Ceremony',
+  'Inner Guidance',
+  'Facial Reflexology',
+  'Intuitive Healing Massage',
+  'Chi Nei Tsang Healing',
+  'Postural Alignment Therapy',
+  'Mat Pilates',
+  'Qigong',
+  'Yoga Sessions',
+  'Day Retreats',
+  'Yoga Alignment & Fundamentals',
+  'Usui Reiki Training',
+  'Something else',
 ];
 
 // Footer columns. "Info Links", "Wellness" and "Facilitators" are verbatim from the live footer;

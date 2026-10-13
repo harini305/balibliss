@@ -1,0 +1,65 @@
+.wrap {
+  padding-block: var(--section-y);
+}
+
+.head > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.heading {
+  font-size: var(--fs-h2);
+}
+
+.list {
+  display: grid;
+  gap: var(--grid-gap);
+  margin: 0;
+}
+
+@media (min-width: 900px) {
+  .list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.card {
+  display: grid;
+  gap: var(--space-3);
+  align-content: start;
+  padding: var(--space-5);
+}
+
+.mark {
+  height: 1.6rem;
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--c-orange);
+}
+
+.quote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-heading);
+  color: var(--c-ink);
+  font-weight: var(--fw-regular);
+}
+
+.cite {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  color: var(--c-ink);
+  line-height: var(--lh-body);
+}
+
+.cite span {
+  margin-left: 0.3rem;
+  color: var(--c-muted);
+  font-weight: var(--fw-regular);
+}

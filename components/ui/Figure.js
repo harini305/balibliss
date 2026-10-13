@@ -4,7 +4,7 @@ import styles from './Figure.module.css';
 
 /**
  * Art-directed image.
- * treatment: plain (square crop) | ring (circular portrait inside the signature ring) | framed (sand mat + caption)
+ * treatment: plain (square crop) | arch (rounded-top portrait) | ring (circular portrait inside the signature ring) | framed (sand mat + caption)
  * aspect: CSS aspect-ratio for the crop, e.g. '4 / 5'. Defaults to the intrinsic ratio.
  * alt is required: pass "" only for decorative images.
  */
@@ -27,8 +27,8 @@ export default function Figure({
       width={image.width}
       height={image.height}
       sizes={sizes}
-      priority={priority}
-      quality={80}
+      preload={priority}
+      quality={90}
       className={`${styles.img} ${imgClassName}`}
       style={{ objectPosition: image.position ?? '50% 50%' }}
     />

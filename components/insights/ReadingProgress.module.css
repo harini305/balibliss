@@ -1,0 +1,23 @@
+/* A clay hairline that rides just under the fixed header (and up to the top edge when the header
+   slides away on scroll down). */
+.bar {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  z-index: calc(var(--z-header) + 1);
+  height: 2px;
+  background: var(--c-clay);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+  transition: top var(--dur-2) var(--ease-standard);
+}
+
+:global(body:has(header[data-compact])) .bar {
+  top: var(--header-h-compact);
+}
+
+:global(body:has(header[data-hidden])) .bar {
+  top: 0;
+}

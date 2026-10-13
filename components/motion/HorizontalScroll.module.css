@@ -1,0 +1,97 @@
+.wrap {
+  position: relative;
+  display: grid;
+  gap: var(--space-7);
+}
+
+.head {
+  padding-inline: var(--gutter);
+}
+
+.viewport {
+  min-width: 0;
+}
+
+/* Default (phones, reduced motion, no JS): a native swipeable row with snap points. */
+.track {
+  display: flex;
+  gap: var(--space-5);
+  padding-inline: var(--gutter);
+  padding-bottom: var(--space-5);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-ornament) transparent;
+}
+
+.panel {
+  flex: none;
+  width: min(80vw, 24rem);
+  scroll-snap-align: start;
+}
+
+.progress {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .wrap {
+    grid-template-columns: minmax(18rem, 30vw) 1fr;
+    align-items: center;
+    gap: 0;
+  }
+
+  .head {
+    padding-right: var(--space-8);
+  }
+
+  .panel {
+    width: clamp(20rem, 26vw, 28rem);
+  }
+
+  .track {
+    gap: var(--space-7);
+    padding-left: 0;
+  }
+
+  /* Pinned mode: the row becomes a transformed strip that the page scroll drives. */
+  .wrap[data-pinned] {
+    min-height: 100vh;
+  }
+
+  .wrap[data-pinned] .viewport {
+    overflow: hidden;
+    /* Cards soften into the edge instead of being sliced by it. */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 4rem);
+    mask-image: linear-gradient(90deg, transparent 0, #000 4rem);
+  }
+
+  .wrap[data-pinned] .track {
+    overflow: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+    padding-right: var(--gutter);
+    width: max-content;
+    will-change: transform;
+  }
+
+  .wrap[data-pinned] .progress {
+    display: block;
+    position: absolute;
+    left: var(--gutter);
+    right: var(--gutter);
+    bottom: var(--space-7);
+    height: var(--border-hair);
+    background: var(--color-border);
+  }
+
+  .bar {
+    display: block;
+    height: 100%;
+    background: var(--color-ornament);
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+  }
+}

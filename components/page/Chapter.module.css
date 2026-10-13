@@ -1,0 +1,448 @@
+/* One session / retreat / bio as a section of its menu page. */
+
+.chapter {
+  padding-block: var(--section-y-sm);
+  scroll-margin-top: calc(var(--header-h-compact) + 3.5rem);
+}
+
+.chapter + .chapter {
+  border-top: 1px solid var(--c-line);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--space-6);
+}
+
+/* ---------- Photograph + facilitators ---------- */
+
+.side {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+}
+
+
+
+.media :global(figure) > div {
+  border-radius: var(--radius-card);
+}
+
+.people {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.peopleLabel {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--c-muted);
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+}
+
+.people ul {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 0.5rem 0.6rem;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-card);
+  background: var(--c-cream);
+  color: var(--c-ink);
+  text-decoration: none;
+  transition:
+    border-color var(--dur-2) var(--ease-standard),
+    box-shadow var(--dur-2) var(--ease-standard);
+}
+
+a.person:hover {
+  border-color: var(--c-orange);
+  box-shadow: var(--shadow-1);
+}
+
+.avatar {
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--c-line);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.personText {
+  display: grid;
+  min-width: 0;
+}
+
+.personName {
+  font-size: 16px;
+  font-weight: var(--fw-bold);
+}
+
+.personRole {
+  color: var(--c-muted);
+  font-size: var(--fs-caption);
+  line-height: var(--lh-body);
+}
+
+/* ---------- Copy ---------- */
+
+.copy {
+  display: grid;
+  gap: var(--space-4);
+  align-content: start;
+  min-width: 0;
+}
+
+.eyebrow {
+  overflow-wrap: anywhere;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--c-orange-deep);
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+}
+
+.title {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+}
+
+.tagline {
+  margin-top: calc(var(--space-3) * -1);
+  font-family: var(--font-body);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-body);
+  color: var(--c-ink);
+  font-weight: var(--fw-regular);
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.fact {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.6rem;
+  align-items: center;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-card);
+  background: var(--c-cream);
+}
+
+.factIcon {
+  grid-row: span 2;
+  color: var(--c-orange);
+}
+
+.fact dt {
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-bold);
+  letter-spacing: normal;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+
+.fact dd {
+  margin: 0;
+  font-size: var(--fs-caption);
+  color: var(--c-ink);
+}
+
+.text {
+  display: grid;
+  gap: var(--space-3);
+  color: var(--c-muted);
+  font-size: var(--fs-body);
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+}
+
+.text strong {
+  color: var(--c-ink);
+}
+
+.leadHeading {
+  margin-top: var(--space-2);
+  font-size: var(--fs-list-title);
+  color: var(--c-ink);
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+}
+
+.pull {
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--c-orange);
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-heading);
+  color: var(--c-ink);
+  font-weight: var(--fw-regular);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-block: var(--space-1) var(--space-2);
+}
+
+.callout {
+  display: grid;
+  gap: var(--space-2);
+  justify-items: start;
+  padding: var(--space-4) var(--space-5);
+}
+
+.calloutHeading {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2-small);
+  line-height: var(--lh-heading);
+  color: var(--c-ink);
+  font-weight: var(--fw-regular);
+}
+
+.calloutText {
+  color: var(--c-muted);
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
+}
+
+/* ---------- Panel contents ---------- */
+
+.flow {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.checks {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.checks li {
+  display: grid;
+  grid-template-columns: 1.1rem minmax(0, 1fr);
+  gap: var(--space-2);
+  color: var(--c-ink);
+}
+
+.check {
+  margin-top: 0.2rem;
+  color: var(--c-moss);
+}
+
+.inlineImg > div {
+  border-radius: var(--radius-card);
+}
+
+.steps,
+.timeline {
+  display: grid;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  gap: var(--space-3);
+}
+
+.stepNum {
+  display: grid;
+  place-items: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid var(--c-orange);
+  border-radius: 50%;
+  color: var(--c-orange-deep);
+  font-size: var(--fs-caption);
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+}
+
+.steps h4,
+.timeline h4,
+.faq h4 {
+  margin-bottom: 0.2rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-bold);
+  color: var(--c-ink);
+}
+
+.timeline li {
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--c-line);
+}
+
+.time {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--c-orange-deep);
+  font-family: var(--font-body);
+  line-height: var(--lh-body);
+}
+
+.note {
+}
+
+.faq {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.faq p + p {
+  margin-top: var(--space-2);
+}
+
+.miniCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 15rem), 1fr));
+  gap: var(--space-3);
+  margin: 0;
+}
+
+.miniCard {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-2);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-card);
+  background: var(--c-cream);
+}
+
+.miniImg {
+  flex: none;
+  width: 4.5rem;
+  height: 4.5rem;
+  overflow: hidden;
+  border-radius: var(--radius-1);
+  background: var(--c-line);
+}
+
+.miniImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.miniBody {
+  display: grid;
+  gap: 0.15rem;
+  align-content: start;
+  font-size: 16px;
+  line-height: var(--lh-body);
+}
+
+.miniBody strong {
+  color: var(--c-ink);
+  font-weight: var(--fw-medium);
+}
+
+.miniSub {
+  color: var(--c-orange-deep);
+}
+
+.miniMeta {
+  color: var(--c-ink);
+}
+
+.quotes {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.quote blockquote {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-heading);
+  color: var(--c-ink);
+  font-weight: var(--fw-regular);
+}
+
+.quote figcaption {
+  margin-top: var(--space-2);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
+  color: var(--c-ink);
+  line-height: var(--lh-body);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+  gap: var(--space-2);
+}
+
+/* ---------- Layout ---------- */
+
+/* Phones: the photograph never exceeds its own pixels. */
+.media {
+  max-width: var(--media-w, 100%);
+}
+
+/* Wider screens: the photograph column is exactly as wide as the photograph can sharply be
+   (at most 45%), so it always sits right beside the text and the text takes the rest. */
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: minmax(0, min(var(--media-w, 40rem), 45%)) minmax(0, 1fr);
+    gap: clamp(2rem, 1rem + 3vw, 4rem);
+    align-items: start;
+  }
+  .reverse .grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, min(var(--media-w, 40rem), 45%));
+  }
+  .media {
+    max-width: none;
+  }
+
+  .side {
+    position: sticky;
+    top: calc(var(--header-h-compact) + 4.5rem);
+  }
+  .reverse .side {
+    order: 2;
+  }
+  .noImage .grid {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 52rem;
+  }
+}

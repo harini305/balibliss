@@ -1,0 +1,177 @@
+.band {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  min-height: clamp(18rem, 14rem + 14vw, 26rem);
+  padding-block: var(--space-8);
+  color: var(--c-white);
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.photo .shade {
+  background:
+    linear-gradient(90deg, rgb(20 28 21 / 0.78) 0%, rgb(20 28 21 / 0.45) 55%, rgb(20 28 21 / 0.35) 100%),
+    linear-gradient(0deg, rgb(20 28 21 / 0.35), transparent 50%);
+}
+
+.photo.right .shade {
+  background:
+    linear-gradient(270deg, rgb(20 28 21 / 0.8) 0%, rgb(20 28 21 / 0.45) 55%, rgb(20 28 21 / 0.3) 100%),
+    linear-gradient(0deg, rgb(20 28 21 / 0.35), transparent 50%);
+}
+
+.photo.center .shade {
+  background: rgb(20 28 21 / 0.6);
+}
+
+.moss {
+  background: var(--c-moss);
+  min-height: clamp(14rem, 11rem + 8vw, 19rem);
+}
+
+.inner {
+  display: flex;
+}
+
+.right .inner {
+  justify-content: flex-end;
+}
+
+.center .inner {
+  justify-content: center;
+  text-align: center;
+}
+
+.copy {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 34rem;
+}
+
+.left .copy {
+  margin-left: clamp(0rem, -6rem + 16vw, 12rem);
+}
+
+.center .copy {
+  justify-items: center;
+}
+
+.figure {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.quote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--fs-statement);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-heading);
+  color: var(--c-white);
+  text-wrap: pretty;
+}
+
+.quote p::before {
+  content: '“';
+}
+
+.quote p::after {
+  content: '”';
+}
+
+.cite {
+  font-size: var(--fs-caption);
+  letter-spacing: 0.02em;
+  color: rgb(255 255 255 / 0.82);
+  line-height: var(--lh-body);
+}
+
+.heading {
+  font-size: var(--fs-statement);
+  line-height: var(--lh-heading);
+  color: var(--c-white);
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+}
+
+.text {
+  font-size: var(--fs-lead);
+  color: rgb(255 255 255 / 0.85);
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+}
+
+.action {
+  padding-top: var(--space-2);
+}
+
+.sprig {
+  display: block;
+  width: 2.6rem;
+  height: 2.6rem;
+  overflow: hidden;
+}
+
+.center .sprig {
+  margin-inline: auto;
+}
+
+.sprig img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(2.1);
+  /* Teal-on-white source: invert, then screen the dark away to leave a light line drawing. */
+  filter: invert(1) grayscale(1) brightness(1.6);
+  mix-blend-mode: screen;
+}
+
+/* ---------- Split: a smaller photograph at its own size beside the words ---------- */
+
+.split {
+  min-height: 0;
+  padding-block: var(--section-y-sm);
+  background: var(--c-forest);
+}
+
+.split .inner {
+  display: grid;
+  gap: var(--space-6);
+  align-items: center;
+  justify-content: stretch;
+  text-align: left;
+}
+
+.split .copy {
+  margin-left: 0;
+}
+
+.splitMedia {
+  width: 100%;
+}
+
+.splitMedia :global(figure) > div {
+  border-radius: var(--radius-card);
+}
+
+@media (min-width: 900px) {
+  .split .inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: var(--space-9);
+  }
+  .split.right .splitMedia {
+    order: 2;
+    justify-self: start;
+  }
+  .split.left .splitMedia {
+    justify-self: end;
+  }
+}

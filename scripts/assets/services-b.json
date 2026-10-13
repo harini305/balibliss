@@ -1,0 +1,20 @@
+{ "assets": [
+  { "src": "2025/03/BaliBlissMassage.jpg", "out": "public/media/services/intuitive-healing-massage/shoulder-massage-paisley.jpg", "alt": "A practitioner's hands massaging the shoulders of a client lying face down on a paisley cover" },
+  { "src": "2026/05/Chi-Nei-Tsang2.jpeg", "out": "public/media/services/chi-nei-tsang-healing/abdominal-massage-table.jpg", "alt": "A practitioner in a pink robe resting both hands on a client's abdomen as she lies on a treatment table" },
+  { "src": "2026/05/Chi-Nei-Tsang.jpeg", "out": "public/media/services/chi-nei-tsang-healing/abdominal-massage-hands.jpg", "alt": "Close-up of a practitioner's hands placed on a client's abdomen during an abdominal massage" },
+  { "src": "2026/03/WhatsApp-Image-2026-03-02-at-3.21.05-PM.jpeg", "out": "public/media/services/mat-pilates/private-pilates-living-room.jpg", "alt": "An instructor guiding a woman holding a Pilates V-sit on a mat in a bright living room" },
+  { "src": "2025/06/IMG-20250614-WA0050.jpg", "out": "public/media/services/qigong-session/qigong-beach-sunset.jpg", "alt": "A woman holding a Qigong posture on a beach at sunset" },
+  { "src": "2025/06/IMG-20250614-WA0051.jpg", "out": "public/media/services/qigong-session/qigong-park-group.jpg", "alt": "Three people practising Qigong hand movements together in a green park" },
+  { "src": "2025/03/Gentle-Yoga-445.jpg", "out": "public/media/services/yoga/beginners-chair-yoga.jpg", "alt": "An instructor kneeling beside a student doing a seated knee stretch on a chair" },
+  { "src": "2025/03/Yoga-Nidra-400.jpg", "out": "public/media/services/yoga/yoga-nidra-rest.jpg", "alt": "A woman lying on a yoga mat with her soles together, resting with eyes closed" },
+  { "src": "2025/03/Restorative-Yoga-Bali-Bliss-445.jpg", "out": "public/media/services/yoga/restorative-bolster.jpg", "alt": "A woman reclining on a bolster in a supported bound-angle pose with blocks under her knees" },
+  { "src": "2025/03/Deep-Stretch-400.jpg", "out": "public/media/services/yoga/deep-stretch-assist.jpg", "alt": "An instructor kneeling at the head of a mat assisting a student's overhead stretch" },
+  { "src": "2025/03/Yin-Yoga-400.jpg", "out": "public/media/services/yoga/yin-twist-assist.jpg", "alt": "An instructor gently supporting a student in a reclined spinal twist on a mat outdoors" },
+  { "src": "2025/03/VinyasaBaliBliss400.jpg", "out": "public/media/services/yoga/vinyasa-cobra-assist.jpg", "alt": "An instructor assisting a student in a cobra backbend on a mat beside a stone garden wall" },
+  { "src": "2025/03/Yoga-with-Weights-445.jpg", "out": "public/media/services/yoga/yoga-with-weights.jpg", "alt": "A woman in a low lunge lifting light hand weights overhead in a garden courtyard" },
+  { "src": "2026/08/New-Project.png", "out": "public/media/services/postural-alignment-therapy/seated-neck-assessment.jpg", "alt": "A therapist steadying a seated client's shoulder and head as she tilts her neck to one side" },
+  { "src": "2026/08/pat2.jpeg", "out": "public/media/services/postural-alignment-therapy/back-massage-table.jpg", "alt": "A therapist working along a client's spine as she lies face down on a treatment table" },
+  { "src": "2026/08/Postural-alignment-therapy-BaliBliss.jpeg", "out": "public/media/services/postural-alignment-therapy/neck-traction.jpg", "alt": "A therapist cradling the head of a client lying on her back to gently release her neck" },
+  { "src": "2026/05/Yoga-Alignment-Fundamentals1.jpeg", "out": "public/media/services/yoga-alignment-fundamentals/lunge-twist-adjustment.jpg", "alt": "A teacher adjusting a student's shoulders in a twisted lunge on a yoga mat" },
+  { "src": "2026/05/Yoga-Alignment-Fundamentals2.jpeg", "out": "public/media/services/yoga-alignment-fundamentals/childs-pose-adjustment.jpg", "alt": "A teacher pressing gently on a student's back as she rests in child's pose" }
+] }

@@ -1,0 +1,44 @@
+{
+  "assets": [
+    {
+      "src": "2025/04/1.png",
+      "out": "public/media/partners/haigha-house.png",
+      "alt": "Haigha House, Ubud, Bali logo"
+    },
+    {
+      "src": "2025/04/2.png",
+      "out": "public/media/partners/blue-karma-dijiwa.png",
+      "alt": "Blue Karma Dijiwa Ubud logo"
+    },
+    {
+      "src": "2025/04/3.png",
+      "out": "public/media/partners/kampung-uma-dawa.png",
+      "alt": "Kampung Uma Dawa logo"
+    },
+    {
+      "src": "2025/04/4.png",
+      "out": "public/media/partners/nyuh-bali.png",
+      "alt": "Nyuh Bali, Ubud Nyuh Bali Resort & Spa logo"
+    },
+    {
+      "src": "2025/04/5.png",
+      "out": "public/media/partners/the-alena.png",
+      "alt": "The Alena, Ubud – Bali logo"
+    },
+    {
+      "src": "2025/04/6.png",
+      "out": "public/media/partners/milliways-bali.png",
+      "alt": "Milliways Bali logo"
+    },
+    {
+      "src": "2025/04/7.png",
+      "out": "public/media/partners/samyama.png",
+      "alt": "Samyama logo"
+    },
+    {
+      "src": "2025/04/8.png",
+      "out": "public/media/partners/tulus-hati.png",
+      "alt": "Tulus Hati logo"
+    }
+  ]
+}

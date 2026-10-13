@@ -1,40 +1,47 @@
+/* Eyebrow: a sage seed-dot, then a spaced uppercase label; with `index`, an italic serif numeral leads. */
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-3);
-  margin-bottom: var(--space-4);
+  gap: 0.85rem;
+  margin-bottom: var(--space-5);
   font-family: var(--font-body);
   font-size: var(--fs-label);
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-medium);
   letter-spacing: var(--tracking-label);
+  line-height: 1.4;
   text-transform: uppercase;
-  color: var(--c-orchid-700);
+  color: var(--color-quiet);
+}
+
+.eyebrow::before {
+  content: '';
+  flex: none;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--c-terra);
 }
 
 .index {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-3);
-  font-family: var(--font-display);
-  font-size: 0.875rem;
-  font-style: italic;
-  font-weight: var(--fw-regular);
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: var(--fw-medium);
   letter-spacing: 0;
   text-transform: none;
-  color: var(--c-clay-600);
+  color: var(--color-accent);
+  line-height: 1;
 }
 
-.index::after {
-  content: '';
-  width: var(--space-6);
-  height: var(--border-hair);
-  background: var(--color-ornament);
+.eyebrow:has(.index)::before {
+  display: none;
+}
+
+.eyebrow:has(.index) > :not(.index) {
+  padding-left: 0.85rem;
+  border-left: 1px solid var(--color-border-strong);
 }
 
 .onDark {
-  color: var(--c-gold-300);
-}
-
-.onDark .index {
-  color: var(--c-ivory-50);
+  color: var(--c-mist-2);
 }

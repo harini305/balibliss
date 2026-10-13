@@ -1,67 +1,94 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { SITE, SOCIAL, FOOTER_COLUMNS } from '@/content/site';
+import { SITE, SOCIAL, BOOKING_URL, WHATSAPP, whatsappLink } from '@/content/site';
 import { MEDIA } from '@/content/media';
-import Ring from '@/components/ui/Ring';
 import Icon from '@/components/ui/Icon';
 import styles from './Footer.module.css';
 
+// Verified on the live site's booking engine (see content/contact-audit.json).
+const BOOKINGS_EMAIL = 'bookings@balibliss.net';
+
+const LINKS = [
+  { label: 'Home', href: '/' },
+  { label: 'Wellness', href: '/wellness-sessions/' },
+  { label: 'Retreats', href: '/one-day-healing-retreats-in-bali/' },
+  { label: 'Workshops', href: '/workshops/' },
+  { label: 'Training', href: '/training/' },
+  { label: 'About', href: '/about/' },
+  { label: 'Partners', href: '/about/#partners' },
+  { label: 'Insights', href: '/insights/' },
+  { label: 'Contact', href: '/contact/' },
+];
+
+/** Footer (collage): a calm ivory band — logo, one row of links, contact details, socials, legal. */
 export default function Footer() {
   const year = new Date().getFullYear();
   return (
     <footer className={styles.footer}>
-      <Ring className={styles.ornament} size={520} stroke="var(--c-lagoon-800)" strokeWidth={1.5} />
-      <div className={`container-wide ${styles.inner}`}>
-        <div className={styles.intro}>
-          <Link href="/" className={styles.brand} aria-label="Bali Bliss — home">
-            <Image src={MEDIA.logoWhite.src} width={MEDIA.logoWhite.width} height={MEDIA.logoWhite.height} alt="" className={styles.logo} sizes="200px" />
-          </Link>
-          <p className={styles.text}>{SITE.footerIntro}</p>
-          <div>
-            <p className={styles.heading} id="footer-social">
-              Follow Us on Social Media
-            </p>
-            <ul className={styles.social} aria-labelledby="footer-social">
-              {SOCIAL.map((s) => (
-                <li key={s.label}>
-                  <a href={s.href} className={styles.socialLink} target="_blank" rel="noopener noreferrer">
-                    <Icon name={s.icon} size={22} label={`${s.label} (opens in a new tab)`} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+      <div className={`container-wide ${styles.top}`}>
+        <Link href="/" className={styles.brand} aria-label="Bali Bliss — home">
+          <Image src={MEDIA.logo.src} width={MEDIA.logo.width} height={MEDIA.logo.height} alt="" sizes="170px" className={styles.logo} />
+        </Link>
 
-        <nav className={styles.columns} aria-label="Footer">
-          {FOOTER_COLUMNS.map((col) => (
-            <div key={col.title} className={styles.col}>
-              <h2 className={styles.heading}>{col.title}</h2>
-              <ul>
-                {col.links.map((l) => (
-                  <li key={l.label}>
-                    {l.external ? (
-                      <a href={l.href} className={styles.link}>
-                        {l.label}
-                      </a>
-                    ) : (
-                      <Link href={l.href} className={styles.link}>
-                        {l.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+        <nav className={styles.nav} aria-label="Footer">
+          <ul>
+            {LINKS.map((l) => (
+              <li key={l.href}>
+                <Link href={l.href} className={styles.link}>
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+            <li>
+              <a href={BOOKING_URL} className={styles.link}>
+                Make Booking
+              </a>
+            </li>
+          </ul>
         </nav>
+      </div>
+
+      <div className={`container-wide ${styles.middle}`}>
+        <p className={styles.intro}>{SITE.footerIntro}</p>
+        <ul className={styles.channels}>
+          <li>
+            <span className={styles.channel}>
+              <Icon name="pin" size={16} />
+              Ubud, Bali
+            </span>
+          </li>
+          <li>
+            <a href={whatsappLink('Hello Bali Bliss,')} className={styles.channel}>
+              <Icon name="whatsapp" size={16} />
+              {WHATSAPP.display}
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${BOOKINGS_EMAIL}`} className={styles.channel}>
+              <Icon name="mail" size={16} />
+              {BOOKINGS_EMAIL}
+            </a>
+          </li>
+        </ul>
       </div>
 
       <div className={`container-wide ${styles.base}`}>
         <p>
-          © {year} {SITE.name}. All rights reserved.
+          © {year} {SITE.fullName}. All rights reserved.
+          <span className={styles.legal}>
+            <Link href="/privacy-policy/">Privacy</Link>
+            <Link href="/terms-conditions/">Terms &amp; Conditions</Link>
+          </span>
         </p>
-        <p className={styles.tagline}>Reconnect · Restore · Renew</p>
+        <ul className={styles.social} aria-label="Bali Bliss on social media">
+          {SOCIAL.map((s) => (
+            <li key={s.label}>
+              <a href={s.href} className={styles.socialLink} target="_blank" rel="noopener noreferrer">
+                <Icon name={s.icon} size={17} label={`${s.label} (opens in a new tab)`} />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </footer>
   );

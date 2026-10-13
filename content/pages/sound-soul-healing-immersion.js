@@ -1,0 +1,181 @@
+export default {
+  slug: 'sound-soul-healing-immersion',
+  kind: 'retreat',
+  section: { label: 'Day Retreats', href: '/one-day-healing-retreats-in-bali/' },
+  title: 'Sound & Soul Healing Immersion',
+  tagline: 'Full Day Experience • Private Retreat • From IDR 4,200,000',
+  intro: [
+    'A full-day journey of purification, blessing, and deep sound healing in Bali.',
+    'Release what no longer serves you, restore your energy, and reconnect with yourself through a powerful blend of sacred Balinese ritual and immersive sound therapy.',
+  ],
+  seo: {
+    title: 'Sound & Soul Healing Immersion: Melukat & Sound Day Retreat',
+    description:
+      'A full-day journey of purification, blessing, and deep sound healing in Bali, blending sacred Balinese ritual with immersive sound therapy.',
+  },
+  hero: {
+    variant: 'split',
+    image: {
+      src: '/media/retreats/sound-healing-garden.jpg',
+      width: 800,
+      height: 500,
+      alt: 'A facilitator playing a singing bowl over a client resting in a garden pavilion',
+      position: '35% 50%',
+    },
+  },
+  cta: 'whatsapp',
+  ctaLabel: 'Discuss a Booking Time',
+  facts: [
+    { term: 'Duration', value: 'Full Day (approx. 10:00 AM – 5:00 PM)' },
+    { term: 'Solo', value: 'IDR 4,200,000' },
+    { term: 'Couple', value: 'IDR 7,000,000' },
+  ],
+  blocks: [
+    {
+      type: 'prose',
+      heading: 'A Day to Cleanse, Restore & Realign',
+      paragraphs: [
+        '**This immersive healing experience is designed as a complete journey — guiding you through purification, blessing, and deep energetic restoration.**',
+        'Your day begins with one of Bali’s most sacred traditions: the Melukat water purification ritual, followed by a blessing ceremony led by a local Balinese priest. These ancient practices are known to support emotional release, spiritual cleansing, and renewed clarity.',
+        'In the afternoon, you are gently guided into a deeply restorative sound healing session — allowing the body to relax, the mind to soften, and the nervous system to reset.',
+        '**This is more than a retreat. It is a space to pause, let go, and reconnect with yourself on a deeper level.**',
+      ],
+    },
+    {
+      type: 'list',
+      heading: 'Is This Experience Right for You?',
+      intro: 'This retreat is ideal if you are:',
+      items: [
+        'Feeling emotionally heavy or overwhelmed',
+        'Seeking clarity or inner balance',
+        'Moving through a life transition',
+        'Looking for a meaningful spiritual experience in Bali',
+        'Curious about sound healing and energy work',
+      ],
+      style: 'check',
+    },
+    {
+      type: 'list',
+      heading: 'You may leave feeling:',
+      items: [
+        'Lighter and more grounded',
+        'Calm and deeply relaxed',
+        'Emotionally released',
+        'Reconnected to yourself',
+        'Renewed with a sense of clarity',
+      ],
+      style: 'plain',
+    },
+    {
+      type: 'timeline',
+      heading: 'Your Day Retreat Journey',
+      steps: [
+        {
+          time: 'Morning',
+          title: 'Purification & Blessing',
+          text: 'Your day begins with a private guided journey to a sacred water temple, where you will experience the traditional Melukat purification ritual. You will be gently guided through each step, allowing you to release stagnant energy, emotional tension, and mental heaviness. Following this, you will receive a Balinese blessing ceremony led by a local priest — offering protection, intention, and spiritual alignment.',
+        },
+        {
+          time: 'Midday',
+          title: 'Nourishment & Integration',
+          text: 'After your morning rituals, you’ll enjoy a nourishing lunch in a peaceful setting. This is a time to rest, reflect, and gently integrate your experience before moving into the next phase of your journey.',
+          note: 'Your choice of vegetarian or non-veg meal - local Balinese cuisine.',
+        },
+        {
+          time: 'Afternoon',
+          title: 'Sound Healing Immersion',
+          text: 'In the afternoon, you will be guided into a deeply immersive sound healing session using instruments such as tibetan singing bowls emitting therapeutic frequencies. You’ll be held in a calm and supportive space, allowing your body and mind to fully unwind.',
+        },
+      ],
+    },
+    {
+      type: 'list',
+      heading: 'This experience supports:',
+      items: ['Nervous system regulation', 'Emotional release', 'Energetic rebalancing', 'Deep relaxation'],
+      style: 'plain',
+    },
+    {
+      type: 'list',
+      heading: 'What’s Included',
+      items: [
+        'Private transport (pickup & drop-off)',
+        'Melukat purification ritual',
+        'Balinese blessing ceremony',
+        'Entrance fees',
+        'Traditional Balinese offerings',
+        'Lunch - Veg or Non-veg',
+        'Sound therapy session',
+        'Guided support throughout the day',
+      ],
+      style: 'check',
+    },
+    {
+      type: 'prose',
+      heading: 'A Unique Blend of Tradition & Healing',
+      paragraphs: [
+        '**This experience brings together two powerful elements:**',
+        'Ancient Balinese spiritual practice and modern sound healing therapy.',
+        'The rituals help to clear and cleanse, while the sound healing supports integration — allowing your body and mind to process, release, and restore.',
+        'The result is a deeply balanced experience that works on multiple levels:',
+      ],
+      list: ['Physical relaxation', 'Emotional release', 'Energetic alignment', 'Mental clarity'],
+    },
+    {
+      type: 'people',
+      heading: 'Guided with Care & Authenticity',
+      items: [
+        {
+          name: 'Jero Mangku Artha',
+          text: 'A respected Balinese priest who brings deep wisdom and authenticity to each ritual. His calm presence and guidance create a safe and meaningful experience rooted in tradition.',
+          image: {
+            src: '/media/retreats/jero-mangku-artha.jpg',
+            width: 800,
+            height: 500,
+            alt: 'Jero Mangku Artha at a Balinese water temple with ceremonial umbrellas',
+            position: '68% 40%',
+          },
+        },
+        {
+          name: 'Lia Natali',
+          text: 'Your healing facilitator, offering sound therapy and intuitive support. Her approach is gentle, grounding, and focused on helping you feel safe, relaxed, and supported throughout your journey.',
+          href: '/about-lia-natali/',
+          image: { src: '/media/people/lia-natali.jpg', width: 1024, height: 1536, alt: 'Lia Natali', position: '50% 28%' },
+        },
+      ],
+    },
+    {
+      type: 'details',
+      heading: 'Experience Details',
+      items: [
+        { term: 'Duration', value: 'Full Day (approx. 10:00 AM – 5:00 PM)' },
+        { term: 'Location', value: 'Ubud and surrounding areas' },
+        { term: 'Availability', value: 'By appointment (Fridays only)' },
+        { term: 'Solo', value: 'IDR 4,200,000' },
+        { term: 'Couple', value: 'IDR 7,000,000' },
+      ],
+    },
+    {
+      type: 'cta',
+      heading: '“Not Sure If This Is Right for You?”',
+      text: 'We’re happy to guide you toward the experience that best suits your needs. Message us for personalised recommendations.',
+      label: 'Discuss a Booking Time',
+      action: 'whatsapp',
+    },
+    {
+      type: 'cta',
+      heading: 'Ready to Experience Deep Healing in Bali?',
+      text: 'Give yourself the space to reset, restore, and reconnect through a truly meaningful day of healing.',
+      label: 'Discuss a Booking Time',
+      action: 'whatsapp',
+    },
+  ],
+  notes: [
+    'DUPLICATED SENTENCE REMOVED: in the Afternoon step, "You’ll be held in a calm and supportive space, allowing your body and mind to fully unwind." appears twice: once in the body and again in bold after the "This experience supports:" list. The second (bold) copy was dropped.',
+    'Typo fixes: "Whats Included" → "What’s Included". "retreat.It is" → "retreat. It is" (missing space between two bold runs). A stray line break in "reconnect / with yourself" was removed. A full stop was added after the unlinked line "Message us for personalised recommendations", which is merged into the cta text. "tibetan" is kept lower-case as in the source.',
+    'In the source, the bold sub-list "This experience supports:" sits inside the Afternoon step. It is stored as a list block after the timeline. Multi-paragraph step texts are joined into one string, and the meal line is stored as the Midday note.',
+    'The closing heading and text ("Ready to Experience Deep Healing in Bali?" …) are identical to the Sacred Renewal page.',
+    'Availability: "By appointment (Fridays only)". The hub says "by advance booking" (audit 3.6 #5). This page says "Couple" (singular).',
+    'Images: the hero is Soundhealing-800, which is the source\'s Lia card image here and the hub card image for this retreat. Lia\'s card uses her portrait instead. Source alts are "undefined".',
+    'Seven WhatsApp widget "Discuss a Booking Time" buttons (+628133659182) appear on the source page. They are represented by the two cta blocks.',
+  ],
+};

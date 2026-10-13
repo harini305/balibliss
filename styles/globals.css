@@ -1,4 +1,4 @@
-/* Base layer: reset, element defaults and a few layout primitives. */
+/* Base layer: reset, element defaults, themes and a few layout primitives. */
 
 *,
 *::before,
@@ -29,6 +29,7 @@ body {
   font-weight: var(--fw-regular);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
 }
 
@@ -36,6 +37,8 @@ body[data-scroll-lock] {
   overflow: hidden;
 }
 
+/* ---------- Headings ----------
+ * As on the reference: H1/H2 in Bagnard 400, H3/H4 in Mulish 600; line height 1.4. */
 h1,
 h2,
 h3,
@@ -44,38 +47,123 @@ h5,
 h6 {
   margin: 0;
   font-family: var(--font-display);
-  font-weight: var(--fw-light);
+  font-weight: var(--fw-regular);
   color: var(--color-heading);
-  line-height: var(--lh-snug);
+  line-height: var(--lh-heading);
   letter-spacing: var(--tracking-display);
   text-wrap: balance;
-  font-variation-settings: 'SOFT' 50;
 }
 
 h1 {
   font-size: var(--fs-h1);
-  line-height: var(--lh-tight);
 }
 h2 {
   font-size: var(--fs-h2);
-  line-height: 1.12;
 }
 h3 {
+  font-family: var(--font-subhead);
   font-size: var(--fs-h3);
-}
-h4 {
-  font-size: var(--fs-h4);
-  font-family: var(--font-body);
   font-weight: var(--fw-semibold);
-  letter-spacing: 0;
+}
+h4,
+h5,
+h6 {
+  font-family: var(--font-subhead);
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
 }
 
-/* Italic accents inside headings echo the logo's italic serif wordmark. */
 h1 em,
 h2 em,
-h3 em {
+h3 em,
+.display em {
   font-style: italic;
-  color: var(--color-accent);
+}
+
+/* ---------- Themes ----------
+ * .theme-dark flips text, headings, links and focus to the forest palette.
+ * .theme-sand is the warm alternate light surface. */
+.theme-dark {
+  --color-heading: var(--color-heading-on-dark);
+  --color-text: var(--color-text-on-dark);
+  --color-text-muted: var(--color-text-on-dark-muted);
+  --color-link: var(--c-white);
+  --color-link-hover: var(--c-gold);
+  --color-accent: var(--color-accent-on-dark);
+  --color-accent-small: var(--c-gold);
+  --color-quiet: var(--c-mist-2);
+  --color-border: var(--color-border-on-dark);
+  --color-border-strong: rgb(255 255 255 / 0.34);
+  --color-focus: var(--color-focus-on-dark);
+  --color-surface: var(--c-forest-2);
+  --color-surface-alt: var(--c-forest-2);
+  background-color: var(--color-surface-dark);
+  color: var(--color-text);
+}
+
+.theme-darkest {
+  background-color: var(--color-surface-darkest);
+}
+
+.theme-sand {
+  background-color: var(--c-sand);
+  --color-surface: var(--c-paper);
+}
+
+/* Paper grain: a faint tactile texture (decorative, no layout). */
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.06;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.theme-dark.grain::after {
+  mix-blend-mode: screen;
+  opacity: 0.06;
+}
+
+/* ---------- Type utilities ---------- */
+
+/* Uppercase micro-label used across the site. */
+.label {
+  font-family: var(--font-body);
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  line-height: var(--lh-body);
+  text-transform: uppercase;
+  color: var(--color-quiet);
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-light);
+  letter-spacing: var(--tracking-mega);
+  line-height: var(--lh-tight);
+}
+
+.lead {
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-lead);
+}
+
+/* Card surface used across the collage layouts. */
+.card {
+  background: var(--c-cream);
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius-card);
 }
 
 p,
@@ -87,8 +175,36 @@ blockquote {
   margin: 0;
 }
 
+ul[class],
+ol[class],
+nav ul,
+footer ul {
+  padding: 0;
+  list-style: none;
+}
+
 p {
   text-wrap: pretty;
+}
+
+strong {
+  font-weight: var(--fw-semibold);
+}
+
+/* Long words (names, URLs) wrap instead of pushing the page sideways on phones. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+dt,
+dd,
+blockquote,
+figcaption {
+  overflow-wrap: break-word;
 }
 
 img,
@@ -106,13 +222,14 @@ a {
   color: var(--color-link);
   text-decoration-line: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  text-underline-offset: 0.22em;
   transition: color var(--dur-1) var(--ease-standard), text-decoration-color var(--dur-1) var(--ease-standard);
 }
 
 a:hover {
   color: var(--color-link-hover);
-  text-decoration-thickness: 2px;
+  text-decoration-color: currentColor;
 }
 
 button,
@@ -134,8 +251,8 @@ button {
 }
 
 ::selection {
-  background: var(--c-lagoon-100);
-  color: var(--c-lagoon-900);
+  background: var(--c-terra-soft);
+  color: var(--c-ink);
 }
 
 /* ---------- Layout primitives ---------- */
@@ -152,6 +269,13 @@ button {
   max-width: calc(var(--width-wide) + 2 * var(--gutter));
   margin-inline: auto;
   padding-inline: var(--gutter);
+}
+
+/* 12-column editorial grid; children place themselves with grid-column. */
+.grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--grid-gap);
 }
 
 .prose {
@@ -174,6 +298,12 @@ button {
   border: 0;
 }
 
+/* Lines produced by SplitText: a mask with room for descenders and italic overhang. */
+.split-line {
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
 /* ---------- Skip link ---------- */
 
 .skip-link {
@@ -182,8 +312,8 @@ button {
   left: var(--space-3);
   z-index: var(--z-skip);
   padding: var(--space-3) var(--space-4);
-  background: var(--c-lagoon-900);
-  color: var(--c-ivory-50);
+  background: var(--c-forest-deep);
+  color: var(--c-ivory);
   font-weight: var(--fw-semibold);
   text-decoration: none;
   border-radius: var(--radius-1);
@@ -193,6 +323,11 @@ button {
 .skip-link:focus-visible {
   transform: none;
   outline-color: var(--color-focus-on-dark);
+}
+
+/* The header is a fixed overlay: pages that don't open on a full-bleed hero start below it. */
+main:not(:has([data-dark-hero])) {
+  padding-top: var(--header-h);
 }
 
 main:focus {
@@ -207,5 +342,22 @@ main:focus {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Intro entrances ----------
+ * Elements marked [data-intro] start hidden only when JS is running and motion is allowed.
+ * The motion component adds .intro-ready once GSAP has taken over; the keyframe is a
+ * failsafe that reveals them anyway if that never happens. */
+@media (prefers-reduced-motion: no-preference) {
+  :root.js:not([data-motion='reduce']):not(.intro-ready) :is([data-intro], [data-intro-split]) {
+    opacity: 0;
+    animation: intro-failsafe 0.6s var(--ease-out) 2.5s forwards;
+  }
+}
+
+@keyframes intro-failsafe {
+  to {
+    opacity: 1;
   }
 }

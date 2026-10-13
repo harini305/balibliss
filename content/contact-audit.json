@@ -1,0 +1,127 @@
+{
+  "checked": "2026-10-12",
+  "method": "Read-only curl of live HTML (User-Agent Mozilla/5.0). Pages inspected: /, /reiki/, /sound-therapy/, /facial-reflexology-massage/, /intuitive-healing-massage/, /one-day-healing-retreats-in-bali/, the 5 /about-*/ bios, /partners/, /privacy-policy/, /terms-conditions/, /bookings/, /book-now/, /thank-you-for-your-booking/. Footer and floating widget are site-wide (identical on every page inspected). Cloudflare-obfuscated emails decoded. Amelia locations from the public entities endpoint (locations only; no customer or staff data recorded).",
+  "phones": [
+    {
+      "value": "+62 815-8641-7127",
+      "href": "https://api.whatsapp.com/send?phone=6281586417127",
+      "where": ["footer (site-wide)", "Amelia location record 'Collaborators Only (non-direct customer)'"],
+      "context": "Footer 'Follow Us on Social Media' WhatsApp icon (title=\"Follow on WhatsApp\"), on every page. Also the phone on Amelia location id 4 'Collaborators Only'. This is the only WhatsApp number a visitor can click without JavaScript."
+    },
+    {
+      "value": "+62 813-3659-182",
+      "href": "https://api.whatsapp.com/send?phone=628133659182&text=Reply%201%20and%20put%20the%20name%20of%20the%20session%20you%20need%2C%20ex.%3A%20reiki%2C%20sound%20therapy%2C%20yoga%2C%20etc.%0D%0A%0D%0AReply%202%20for%20One-Day%20Immersion%20Retreat.%0D%0A",
+      "where": [
+        "floating WhatsApp widget (site-wide; plugin wp-whatsapp 3.8.2 by NinjaTeam, account 545 'Bali Bliss' / 'Bali Bliss Wellness')",
+        "/one-day-healing-retreats-in-bali/ — 5 'Discuss a Booking Time' buttons (nta_wa_button data-id 545)",
+        "/book-now/ and /bookings/ — Amelia company phone (settings.company.phone), shown in the Amelia step-form sidebar",
+        "Amelia location records: Mas @Wana Stay, Ubud Center @Mayu House, Online - Google Meet, Singakerta"
+      ],
+      "context": "Widget/button href is built in JS (njt-whatsapp.js: urlSettings onDesktop/onMobile = 'api', opens in new tab) as https://api.whatsapp.com/send?phone=<digits>&text=<predefinedText>; the encoding shown is encodeURIComponent of the configured text (plugin replaces newlines with %0A, so the live string may differ slightly in the line-break encoding). Prefilled text: 'Reply 1 and put the name of the session you need, ex.: reiki, sound therapy, yoga, etc. / Reply 2 for One-Day Immersion Retreat.' Widget label: 'Need Help? Chat with us'; popup title 'Bali Bliss Start Conversation'; isAlwaysAvailable ON."
+    }
+  ],
+  "emails": [
+    {
+      "value": "lia@balibliss.net",
+      "href": "mailto:lia@balibliss.net",
+      "where": ["/partners/ ('Become a Bali Bliss Partner')", "Amelia notifications bccEmail (in page JS config on /bookings/ and /book-now/, not visible)"],
+      "context": "'Contact us at lia@balibliss.net to discuss partnership opportunities.' (Cloudflare email-protected link)."
+    },
+    {
+      "value": "info@balibliss.net",
+      "href": "mailto:info@balibliss.net",
+      "where": ["/privacy-policy/ section 5 'Your Rights'"],
+      "context": "'To make such a request, please email us at info@balibliss.net.' (Cloudflare email-protected)."
+    },
+    {
+      "value": "bookings@balibliss.net",
+      "href": null,
+      "where": ["/book-now/ and /bookings/ — Amelia company email (settings.company.email), shown in the Amelia step-form sidebar", "Amelia notifications senderEmail and replyTo"],
+      "context": "Booking confirmation emails are sent from and reply to this address. Not linked anywhere in page copy."
+    }
+  ],
+  "locations": [
+    {
+      "value": "Located in Ubud, Bali",
+      "where": ["footer (site-wide)"],
+      "context": "Footer blurb: 'Located in Ubud, Bali, our skilled practitioners and instructors will guide you…'. No street address in the footer."
+    },
+    {
+      "value": "Mayu House – Ubud Center",
+      "where": ["/terms-conditions/ 'Our Healing Locations'"],
+      "context": "'Located in the heart of Ubud… Regular Reiki, Sound Therapy, and Massage treatments with Yuli and Yoga sessions led by Arsita.' No address; 'Location details will be shared upon booking confirmation.'"
+    },
+    {
+      "value": "Wana Stay – Just Outside Ubud Center",
+      "where": ["/terms-conditions/ 'Our Healing Locations'"],
+      "context": "'…Lia offers Reiki, Sound Therapy, Qigong, Intuitive Readings, Yin Yoga, and Yoga Nidra.' Recommends online motorbike taxi (approx. 10–15 minutes from Ubud Center) or Bali Bliss-arranged bike transport at an additional fee."
+    },
+    {
+      "value": "Google Map 'Bali Bliss Wellness' (place 0x2dd23d944b387383:0x38c9431aeb24e84b, approx. -8.5085, 115.2663)",
+      "where": ["/bookings/ 'Find Us' map iframe"],
+      "context": "Map pin matches the Ubud Center @ Mayu House coordinates (Amelia -8.508547, 115.266982). Google review widgets name 'Bali Bliss Wellness Ubud Center' (133 reviews) and 'Bali Bliss Wellness Mas' (5.0, 45 reviews)."
+    },
+    {
+      "amelia_id": 7,
+      "value": "Bali Bliss Ubud Center @Mayu House",
+      "address": "Jalan Raya Ubud No.888, Ubud, Gianyar Regency, Bali, Indonesia",
+      "description": "It is exactly on the opposite side of Bali Buda store.",
+      "phone": "+628133659182",
+      "where": ["Amelia locations endpoint / booking widget"]
+    },
+    {
+      "amelia_id": 6,
+      "value": "Bali Bliss Mas @Wana Stay (15 min outside center)",
+      "address": "Jl. Rapuan, Mas, Ubud, Gianyar Regency, Bali, Indonesia",
+      "description": "Brown gate, next to Warung Gurihan BBQ",
+      "phone": "+628133659182",
+      "where": ["Amelia locations endpoint / booking widget"]
+    },
+    {
+      "amelia_id": 8,
+      "value": "Singakerta, Ubud",
+      "address": "F7F2+2RP, Singakerta, Ubud, Gianyar Regency, Bali 80571, Indonesia",
+      "description": "Evina Villa 3\nBr, Jl. Dangin Labak Jl. Raya Singakerta, Gianyar Regency, Bali 80571, Indonesia",
+      "phone": "+628133659182",
+      "where": ["Amelia locations endpoint / booking widget"]
+    },
+    {
+      "amelia_id": 2,
+      "value": "Kuta, Seminyak, Kerobokan",
+      "address": "Seminyak, Badung Regency, Bali, Indonesia",
+      "description": "For your convenience we come to your hotel, villa, homestay or guest house in Seminyak, Kerobokan and Kuta",
+      "phone": "",
+      "where": ["Amelia locations endpoint / booking widget"]
+    },
+    {
+      "amelia_id": 3,
+      "value": "Online - Google Meet",
+      "address": "",
+      "description": "The Google Meet link will be sent once we have received full payment. Please contact us for the payment options",
+      "phone": "+628133659182",
+      "where": ["Amelia locations endpoint / booking widget"]
+    },
+    {
+      "amelia_id": 4,
+      "value": "Collaborators Only (non-direct customer)",
+      "address": "Ubud, Gianyar Regency, Bali, Indonesia",
+      "description": "The location is at your place",
+      "phone": "+6281586417127",
+      "where": ["Amelia locations endpoint / booking widget"]
+    }
+  ],
+  "socials": [
+    { "value": "https://www.facebook.com/baliblisswellness", "where": ["footer"] },
+    { "value": "https://www.instagram.com/baliblisswellness", "where": ["footer"] },
+    { "value": "https://www.youtube.com/@baliblisswellness", "where": ["footer"] }
+  ],
+  "conflicts": [
+    "Two WhatsApp numbers on every page: the footer icon goes to +62 815-8641-7127, while the floating 'Chat with us' widget, the retreat hub's 5 'Discuss a Booking Time' buttons, the Amelia booking sidebar and 5 of 6 Amelia locations use +62 813-3659-182. The 0815 number otherwise appears only on the internal 'Collaborators Only' location. Owner must confirm which is primary.",
+    "The T&C says 'All booking communications will be handled via WhatsApp', but the thank-you page says 'we will confirm shortly by email', and Amelia sends confirmations from bookings@balibliss.net.",
+    "Three public emails with no stated roles: bookings@ (Amelia sender and sidebar only), info@ (privacy requests only) and lia@ (partnerships; also BCC on every Amelia notification). No general contact email appears in the footer.",
+    "Locations: the T&C names 2 venues (Mayu House, Wana Stay) and gives no addresses. Amelia offers 6 options, including Singakerta (Evina Villa) and in-villa visits in Kuta/Seminyak/Kerobokan. Wana Stay is '15 min outside center' in Amelia but 'approx. 10–15 minutes' in the T&C.",
+    "Wana Stay vs 'Mas': the Google review widget calls it 'Bali Bliss Wellness Mas', the Amelia name is 'Bali Bliss Mas @Wana Stay', and the T&C says 'Wana Stay – Just Outside Ubud Center'.",
+    "The Amelia 'Online - Google Meet' location has placeholder coordinates (40.748441, -73.987853, New York); harmless, but do not reuse them.",
+    "No page publishes a street address in visible copy. The Mayu House address (Jalan Raya Ubud No.888) exists only in the Amelia location data and the /bookings/ map pin."
+  ]
+}

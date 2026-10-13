@@ -59,19 +59,18 @@ const SPACE_PX = [4, 8, 12, 16, 24, 32, 48, 64, 96, 128];
 const STATES = ['default', 'hover', 'focus', 'active'];
 
 const CONTRAST_PAIRS = [
-  ['#1f2526', '#faf6ef', 'Ink 900 on ivory', 'Body text'],
-  ['#53605f', '#faf6ef', 'Ink 600 on ivory', 'Muted text'],
-  ['#53605f', '#f1e8da', 'Ink 600 on sand', 'Muted text on alt surface'],
-  ['#2a6371', '#faf6ef', 'Lagoon 700 on ivory', 'Links, buttons'],
-  ['#ffffff', '#2a6371', 'White on lagoon 700', 'Primary button label'],
-  ['#173e48', '#faf6ef', 'Lagoon 900 on ivory', 'Headings'],
-  ['#6c4870', '#faf6ef', 'Orchid 700 on ivory', 'Eyebrows'],
-  ['#825c85', '#faf6ef', 'Orchid 600 on ivory', 'Italic heading accents'],
-  ['#9a4f31', '#faf6ef', 'Clay 600 on ivory', 'Index numerals'],
-  ['#faf6ef', '#173e48', 'Ivory on lagoon 900', 'Text on dark'],
-  ['#c8d6d6', '#173e48', 'Mist on lagoon 900', 'Muted text on dark'],
-  ['#d8b36a', '#173e48', 'Gold on lagoon 900', 'Labels on dark'],
-  ['#d8b36a', '#faf6ef', 'Gold on ivory', 'Ornament only — never text'],
+  ['#282a25', '#f7f5ef', 'Ink on ivory', 'Body text, headings'],
+  ['#5e5f57', '#f7f5ef', 'Ink 2 on ivory', 'Muted text'],
+  ['#5e5f57', '#eae9df', 'Ink 2 on parchment', 'Muted text on alt surface'],
+  ['#77786e', '#f7f5ef', 'Ink 3 on ivory', 'Large text only (unlit statement words)'],
+  ['#536851', '#f7f5ef', 'Sage deep on ivory', 'Eyebrows, small labels'],
+  ['#c98263', '#f7f5ef', 'Terracotta on ivory', 'Large italic accents, numerals only'],
+  ['#9b5434', '#f7f5ef', 'Terracotta deep on ivory', 'Small accent text, hover states'],
+  ['#9b5434', '#eae9df', 'Terracotta deep on parchment', 'Small accent text on alt surface'],
+  ['#f7f5ef', '#233b32', 'Ivory on forest', 'Primary button label, text on dark'],
+  ['#18291f', '#c98263', 'Forest deep on terracotta', 'Accent button label'],
+  ['#b7c2b4', '#233b32', 'Mist 2 on forest', 'Muted text on dark'],
+  ['#e2a98b', '#18291f', 'Terracotta light on forest deep', 'Labels and accents on dark'],
 ];
 
 function Section({ id, index, title, intro, children, tone }) {
@@ -108,13 +107,14 @@ export default function Styleguide() {
       <div className={styles.hero}>
         <div className={`container ${styles.heroInner}`}>
           <div>
-            <Eyebrow>Design system · v0.1 · private, noindex</Eyebrow>
+            <Eyebrow>Design system · v0.3 · private, noindex</Eyebrow>
             <h1 className={styles.heroTitle}>
-              Daily <em>Offering</em>
+              The Art of <em>Returning</em>
             </h1>
             <p className={styles.lead}>
-              The Bali Bliss design system: a calm, editorial field guide to small, repeated acts of care. Every page unfolds
-              the way a session does — arrive, understand, feel safe, choose, book.
+              The Bali Bliss design system: warm ivory and parchment, muted sage for quiet structure, deep forest for immersion
+              and a restrained sun-baked terracotta for emphasis; Bagnard display type with Inter and Mulish; temple-arch
+              photography, the logo's hand-drawn ring, and GSAP motion that opens, rises and settles.
             </p>
             <p className={styles.note}>
               All copy on this page is verbatim from balibliss.net (source noted per block). Nothing here is published; this
@@ -150,7 +150,7 @@ export default function Styleguide() {
           </div>
           <div className={`${styles.logoTile} ${styles.onDark}`}>
             <Image src={MEDIA.logoWhite.src} width={MEDIA.logoWhite.width} height={MEDIA.logoWhite.height} alt={MEDIA.logoWhite.alt} sizes="320px" className={styles.logoImg} />
-            <p className={styles.caption}>Reversed · on lagoon 900 (footer)</p>
+            <p className={styles.caption}>Reversed · on forest deep (footer)</p>
           </div>
           <div className={`${styles.logoTile} ${styles.onIvory}`}>
             <Image src={MEDIA.symbol.src} width={MEDIA.symbol.width} height={MEDIA.symbol.height} alt="Bali Bliss symbol" sizes="120px" className={styles.symbolImg} />
@@ -162,7 +162,7 @@ export default function Styleguide() {
               <Ring size={88} stroke="var(--c-orchid-600)" />
               <Ring size={88} stroke="var(--c-gold-300)" strokeWidth={1.5} />
             </div>
-            <p className={styles.caption}>Signature ring · lagoon, orchid, gold strokes · 1–1.5px</p>
+            <p className={styles.caption}>Signature ring · sage, terracotta strokes · 1–1.5px</p>
           </div>
         </div>
       </Section>
@@ -172,7 +172,7 @@ export default function Styleguide() {
         id="colour"
         index={2}
         title="Colour"
-        intro="Lagoon teal and orchid plum come straight from the logo; ivory and sand carry the page; clay is a restrained accent drawn from the photography (offerings, temple brick). Swatches below are read from styles/tokens.css at build time."
+        intro="Ivory and parchment carry the page; sage gives quiet structure; deep forest holds the immersive sections; terracotta (temple brick, offerings, the red of the hero photograph) is the single warm accent. Swatches below are read from styles/tokens.css at build time."
         tone="alt"
       >
         <ul className={styles.swatches}>
@@ -229,7 +229,7 @@ export default function Styleguide() {
         id="type"
         index={3}
         title="Typography"
-        intro="Fraunces (display, light weights, soft optical sizing, italic accents that echo the logo's italic wordmark) with Instrument Sans (body and UI). Both are open-licence and self-hosted via next/font. Sizes are fluid between 320px and 1440px."
+        intro="Bagnard (H1/H2) with Inter (body, navigation, buttons, labels) and Mulish (H3/H4, footer), matched to the houseofom.com reference. All open-licence and self-hosted. Sizes scale linearly between 360px and 1600px viewports."
       >
         <div className={styles.typeList}>
           {TYPE_SCALE.map(([token, name, sample, cls]) => (

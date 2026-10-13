@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "essential-wellness",
+    "name": "Essential Wellness",
+    "description": "",
+    "count": 49
+  },
+  {
+    "slug": "reiki-healing",
+    "name": "Reiki Healing",
+    "description": "",
+    "count": 6
+  },
+  {
+    "slug": "yoga",
+    "name": "Yoga",
+    "description": "",
+    "count": 6
+  },
+  {
+    "slug": "melukat",
+    "name": "Melukat",
+    "description": "",
+    "count": 4
+  },
+  {
+    "slug": "somatic-healing",
+    "name": "Somatic Healing",
+    "description": "",
+    "count": 4
+  },
+  {
+    "slug": "sound-therapy",
+    "name": "Sound Therapy",
+    "description": "",
+    "count": 4
+  },
+  {
+    "slug": "inner-guidance",
+    "name": "Inner Guidance",
+    "description": "",
+    "count": 3
+  },
+  {
+    "slug": "qigong",
+    "name": "Qigong",
+    "description": "",
+    "count": 3
+  },
+  {
+    "slug": "facial-reflexology",
+    "name": "Facial Reflexology",
+    "description": "",
+    "count": 2
+  },
+  {
+    "slug": "pilates",
+    "name": "Pilates",
+    "description": "",
+    "count": 2
+  },
+  {
+    "slug": "abdominal-massage",
+    "name": "Abdominal Massage",
+    "description": "",
+    "count": 1
+  },
+  {
+    "slug": "ceremony",
+    "name": "Ceremony",
+    "description": "",
+    "count": 1
+  }
+]
